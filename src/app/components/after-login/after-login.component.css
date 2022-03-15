@@ -1,0 +1,25 @@
+body{
+    background-color: #142f43;
+}
+h1{
+    color: #f7f8f0;
+    text-align: center;
+    padding: 2rem;
+    font-size: 3rem;
+}
+.cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+.card {
+    margin: 2rem;
+    cursor: pointer;
+}
+.card:hover{
+    opacity: 1;
+    box-shadow: 0px 0px 10px 1px #ff5c23;
+    border-radius: 10px;
+}
