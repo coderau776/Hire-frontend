@@ -1,25 +1,47 @@
-<div class="container">
+<div class="container mt-2" style="height:25rem;border-radius: 10px;padding: 2rem 1rem 2rem 1rem;">
     <div class="header">
-        <h2>{{months[date.getMonth()]}}, {{date.getFullYear()}}</h2>
-        <div class="days">
-            <table>
-                <thead>
-                    <th style="padding-left:0 ;">S</th>
-                    <th>M</th>
-                    <th>T</th>
-                    <th>W</th>
-                    <th>T</th>
-                    <th>F</th>
-                    <th>S</th>
-                </thead>
-                <tr>
-                    <td></td>
-                </tr>
-            </table>
+        <div class="row">
+            <div class="col-md-2" style="padding-top: 7px;padding-right:2rem;">
+                <fa-icon style="cursor: pointer;" *ngIf="month>0" [icon]="faLeft" pull="right" size="1x" (click)="onClick(-1)" ></fa-icon>
+            </div>
+            <div class="col-md-8 text-center">
+                
+                <h4><span style="font-weight: bold;">{{months[date.getMonth()]}}, {{date.getFullYear()}}</span></h4>
+            </div>
+            <div class="col-md-2" style="padding-top: 7px;">
+                <fa-icon style="cursor: pointer;"  [icon]="faRight" pull="right" size="1x" (click)="onClick(1)"></fa-icon>
+                <!-- *ngIf="month<=2" -->
+            </div>
+        </div>
+    </div>    
+        <div class="row">
+            <div class="days">
+                <table #table cellpadding="8px">
+                    <thead style="text-align:center">
+                        <th>S</th>
+                        <th>M</th>
+                        <th>T</th>
+                        <th>W</th>
+                        <th>T</th>
+                        <th>F</th>
+                        <th>S</th>
+                    </thead>
+                    <ng-container >
+                        <tr *ngFor="let i of dates">
+                            <td *ngFor="let j of i" style="text-align:center">
+                                
+                                <div #d [ngClass]="{'notdate':j==='',
+                                                 'disable':((month==0)&&num(j)<=currentMonthDisable)
+                                                            ||((month==1)&&num(j)<=nextMonthDisable)}" 
+                                    (click)="dateClick($event)" style="width: 30px;height: 30px;padding-top:5px;cursor: pointer;">{{j}}</div>
+                            </td>
+                        </tr>
+                    </ng-container>
+                    
+                </table>
+                
+            </div>
             
         </div>
-    </div>
-    <div class="dates">
-
-    </div>
+        
 </div>

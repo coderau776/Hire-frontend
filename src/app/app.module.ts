@@ -15,6 +15,8 @@ import { InterviewerComponent } from './components/interviewer/interviewer.compo
 import { RecruiterComponent } from './components/recruiter/recruiter.component';
 import { SlotViewComponent } from './components/interviewer/slot-view/slot-view.component';
 import { CalendarComponent } from './components/interviewer/slot-view/calendar/calendar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { CalendarComponent } from './components/interviewer/slot-view/calendar/c
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SocialLoginModule
+    SocialLoginModule,
+    FontAwesomeModule
   ],
   providers: [
     {

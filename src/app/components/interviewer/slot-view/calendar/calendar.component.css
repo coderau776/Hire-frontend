@@ -3,7 +3,35 @@
     padding: 1rem;
 }
 .container{
-    background-color: aliceblue;
+    background-color: #EFEFEF;
     width: fit-content;
     padding: 1rem;
+}
+.header{
+    font-weight: 2rem;
+}
+.days{
+    font-size: 0.85rem;
+    font-weight: bolder;
+}
+.provided{
+    background-color: #ff5c23;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #f7f8f0;
+    pointer-events: auto;
+}
+.notdate{
+    cursor: default;
+    background-color: transparent;
+    pointer-events: none;
+}
+.icon{
+    padding-top: 2rem;
+}
+.disable{
+    color: grey;
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.5;
 }

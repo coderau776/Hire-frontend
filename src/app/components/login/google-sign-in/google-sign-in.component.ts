@@ -5,7 +5,7 @@ import { GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-soc
 @Component({
   selector: 'app-google-sign-in',
   templateUrl: './google-sign-in.component.html',
-  styleUrls: ['./google-sign-in.component.css']
+  styleUrls: ['./google-sign-in.component.css'],
 })
 export class GoogleSignInComponent implements OnInit {
 
