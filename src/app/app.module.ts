@@ -16,6 +16,7 @@ import { RecruiterComponent } from './components/recruiter/recruiter.component';
 import { SlotViewComponent } from './components/interviewer/slot-view/slot-view.component';
 import { CalendarComponent } from './components/interviewer/slot-view/calendar/calendar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EditFormComponent } from './interviewer/slot-view/edit-form/edit-form.component';
 
 
 
@@ -29,7 +30,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     InterviewerComponent,
     RecruiterComponent,
     SlotViewComponent,
-    CalendarComponent
+    CalendarComponent,
+    EditFormComponent
   ],
   imports: [
     BrowserModule,
