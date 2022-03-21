@@ -21,7 +21,7 @@ import { EditFormComponent } from './components/interviewer/slot-view/edit-form/
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent, 
     GoogleSignInComponent,
     AfterLoginComponent,
     LoginComponent,
