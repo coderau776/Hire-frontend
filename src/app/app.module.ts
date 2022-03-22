@@ -17,6 +17,7 @@ import { SlotViewComponent } from './components/interviewer/slot-view/slot-view.
 import { CalendarComponent } from './components/interviewer/slot-view/calendar/calendar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EditFormComponent } from './components/interviewer/slot-view/edit-form/edit-form.component';
+import { ScheduleComponent } from './components/interviewer/slot-view/schedule/schedule.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { EditFormComponent } from './components/interviewer/slot-view/edit-form/
     RecruiterComponent,
     SlotViewComponent,
     CalendarComponent,
-    EditFormComponent
+    EditFormComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,
