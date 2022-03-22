@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable,EventEmitter } from '@angular/core';
 import { calendarDate } from '../models/calendarDate.model';
 
 @Injectable({
@@ -13,10 +14,14 @@ export class CalendarServiceService {
   nextMonthDates:string[][];
   nextnextMonthDates:string[][];   
   provided:string[];
+  dateEvent:EventEmitter<Date> = new EventEmitter();
+  doneEvent:EventEmitter<number> = new EventEmitter();
 
-  constructor() {   
+  constructor(private http:HttpClient) {   
 
   }
+
+
 
   getDatesArray(dates:string[][],date:Date):string[][] {
     

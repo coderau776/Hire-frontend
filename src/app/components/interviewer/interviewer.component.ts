@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CalendarServiceService } from 'src/app/services/calendar-service.service';
 
 @Component({
   selector: 'app-interviewer',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InterviewerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cs:CalendarServiceService) { }
 
   ngOnInit(): void {
+    
   }
 
 }

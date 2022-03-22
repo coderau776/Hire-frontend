@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { CalendarServiceService } from 'src/app/services/calendar-service.service';
 
 
 @Component({
@@ -9,10 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScheduleComponent implements OnInit {
 
-  selecteddate=new Date(2022,3,29)
-
- events= [{"id":1,"Dates":new Date(2022,3,24),"Time":"8:00 AM",task:"Java interview"},
-  {"id":2,"Date":new Date(2022,3,24),"Time":"10:00 AM",task:"Angular interview"},
+  selecteddate:Date;
+  events= [{"id":1,"Dates":new Date(2022,3,24),"Time":"8:00 AM",task:"Java interview"},
+  {"id":2,"Date":new Date(2022,2,22),"Time":"10:00 AM",task:"Angular interview"},
   {"id":3,"Date":new Date(2022,3,24),"Time":"6:00 PM",task:"React interview"},
   {"id":4,"Date":new Date(2022,3,26),"Time":"8:00 AM",task:"java interview"},
   {"id":5,"Date":new Date(2022,3,26),"Time":"10:00 AM",task:"Python interview"},
@@ -22,13 +22,22 @@ export class ScheduleComponent implements OnInit {
   {"id":9,"Date":new Date(2022,3,29),"Time":"11:00 AM",task:"Nodejs interview"},
   {"id":10,"Date":new Date(2022,3,30),"Time":"9:00 AM",task:"Hibernate interview"}]
 
+  constructor(private calendarService:CalendarServiceService){
+
+  }
+  
+  ngOnInit(): void {   
+    this.calendarService.initialize(); 
+    this.selecteddate=this.calendarService.currentMonth;
+    this.calendarService.dateEvent.subscribe((date)=>{
+      this.selecteddate=date;
+    })
+  }
+ 
  
 
-  constructor() {   
-  }
 
-  ngOnInit(): void {    
-  }
+ 
   
   
 }

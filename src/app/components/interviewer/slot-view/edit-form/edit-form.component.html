@@ -1,1 +1,73 @@
-<p>edit-form works!</p>
+<div class="container">
+    <form #slotForm="ngForm" (ngSubmit)="getvalues(slotForm.value)" >
+
+        <h4> {{ Date1.toDateString() }} </h4>
+        <label for="stime">Start Time : </label>
+        <input #st type="time" ngModel id="stime" name="startTime">
+        <br>
+        <label for="etime">End_ Time : </label>
+        <input #et type="time" ngModel id="etime" name="endTime">
+        <br>
+
+        <h5>Select the type of slot :</h5>
+        <button (click)="instant()" class="select" type="button" name="type">Instant</button>
+        <button (click)="recurring()" class="select" type="button" name="type">Recurring</button>
+
+        <!-- <input type="radio" ngModel id="instant" name="type" value="instant" (click)="instant()">
+        <label for="instant">Instant</label>
+        <input type="radio" ngModel id="recurring" name="type" value="recurring" (click)="recurring()">
+        <label for="recurring">Recurring</label> -->
+
+        <br>
+
+        <div class="recurring" *ngIf="flag1">
+            <label for="sDate">Start Date :</label>
+            <input type="date" ngModel id="sDate" name="start date">
+            <br>
+            <label for="eDate">End_ Date :</label>
+            <input type="date" ngModel id="eDate" name="end date">
+
+            <br>
+            <button (click)="daily()" class="select" type="button">Daily</button>
+            <button (click)="weekly()" class="select" type="button">Weekly</button>
+
+            <!-- <input type="radio" ngModel id="daily" name="repeat" value="daily" (click)="daily()">
+        <label for="daily">Daily</label>
+        <input type="radio" ngModel id="weekly" name="repeat" value="weekly" (click)="weekly()">
+        <label for="weekly">Weekly</label> -->
+
+        </div>
+        <br>
+
+        <div class="day" *ngIf="flag2 && flag1">
+
+            <h4>Select the Day</h4>
+            <input type="radio" ngModel id="mon" name="day" value="Monday">
+            <label for="mon">Monday</label>
+            <br>
+            <input type="radio" ngModel id="tue" name="day" value="Tuesday">
+            <label for="tue">Tuesday</label>
+            <br>
+            <input type="radio" id="wed" name="day" value="Wednesday">
+            <label for="wed">Wednesday</label>
+            <br>
+            <input type="radio" ngModel id="thu" name="day" value="Thursday">
+            <label for="thu">Thursday</label>
+            <br>
+            <input type="radio" ngModel id="fri" name="day" value="Friday">
+            <label for="fri">Friday</label>
+            <br>
+            <input type="radio" ngModel id="sat" name="day" value="Saturday">
+            <label for="sat">Saturdayy</label>
+
+        </div>
+        <br>
+
+        <button (click)="showmsg()" class="done">Done</button>
+
+        <div class="msg" *ngIf="flag3">
+            <p>Slot Provided Successfully!!!!</p>
+        </div>
+
+    </form>
+</div>

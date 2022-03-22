@@ -18,6 +18,9 @@ import { CalendarComponent } from './components/interviewer/slot-view/calendar/c
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EditFormComponent } from './components/interviewer/slot-view/edit-form/edit-form.component';
 import { ScheduleComponent } from './components/interviewer/slot-view/schedule/schedule.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -38,7 +41,9 @@ import { ScheduleComponent } from './components/interviewer/slot-view/schedule/s
     BrowserModule,
     AppRoutingModule,
     SocialLoginModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [
     {

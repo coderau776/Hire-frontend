@@ -1,13 +1,13 @@
 <div  class="outerbox" >            
     <br>
-    <h3>Upcoming Inteviews on {{selecteddate|date}}</h3>
+    <h5>Interviews of {{selecteddate|date}}</h5>
      
-    <div  *ngFor="let event of events">               
-        <!-- <div *ngIf=selecteddate ===event.Date> -->
+    <div  *ngFor="let event of events"> 
+        <div *ngIf="this.selecteddate.getDay() ===this.event.Date?.getDay() && this.selecteddate.getMonth() ===this.event.Date?.getMonth() ">
             <div class="Mid_Schedule">
                 <h5>{{event.Time}}  , {{event.task}}</h5>                   
               </div>
-        <!-- </div>   -->
+        </div>              
     </div>
   
     

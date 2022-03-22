@@ -17,7 +17,7 @@ export class CalendarComponent implements OnInit {
   nextMonthDisable:number; 
   faRight = faArrowRight;
   faLeft = faArrowLeft;
-  
+  target:any;
 
 
   @ViewChildren('d')
@@ -52,8 +52,12 @@ export class CalendarComponent implements OnInit {
     })
   }
 
-  dateClick(event:Event){
-    this.renderer.addClass(event.target,'provided');
+  dateClick(event:Event,date:string){
+
+    
+    this.calendarService.dateEvent.emit(new Date(this.date.getFullYear(),this.date.getMonth(),this.num(date)))
+    this.target = event.target;
+    
   }
   num(a:string){
     return Number(a);
@@ -84,7 +88,9 @@ export class CalendarComponent implements OnInit {
     
     this.calculateDisable();
     
-    //format month-date-year
+    this.calendarService.doneEvent.subscribe((date)=>{
+      this.renderer.addClass(this.target,'provided');
+    })
     
   }
   calculateDisable(){
