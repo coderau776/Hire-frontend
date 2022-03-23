@@ -52,7 +52,7 @@ export class CalendarServiceService {
   getDaysInCurrentMonth(date:Date) {
     return new Date(
       date.getFullYear(),
-      date.getMonth() + 1,
+      date.getMonth() + 1,  
       0
     ).getDate();
   }

@@ -1,0 +1,86 @@
+<body>
+  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+  <label for="openSidebarMenu" class="sidebarIconToggle">
+    <div class="spinner diagonal part-1"></div>
+    <div class="spinner horizontal"></div>
+    <div class="spinner diagonal part-2"></div>
+  </label>
+  <div id="sidebarMenu">
+    <div class="Card" *ngIf="log">
+    <h1>HIRE</h1>
+    <img class="card_img" *ngIf="log" src="{{ log.photoUrl }}" >
+  </div>
+  <div class="card-block">
+    <h4 class="card-title" *ngIf="log">{{ log.name }}</h4>
+    <h4 class="card-title">SDE-1</h4>
+    
+    <button class="btn btn-danger signout" (click)="signOut()">Sign Out</button>
+  </div>
+  <hr>
+  <div class="skill">
+    <h2>Skills</h2>
+    <br />
+    <div class="addskill">
+      <p>Angular</p>
+      <!-- <img
+        src="../../assets/383147_edit_icon.png"
+        alt=""
+        width="30"
+        height="25"
+      /> -->
+
+      <fa-icon [icon]="faEdit"></fa-icon>
+    </div>
+    <br />
+    <div class="addskill">
+      <p>Angular</p>
+      <!-- <img
+        src="../../assets/383147_edit_icon.png"
+        alt=""
+        width="30"
+        height="25"
+      /> -->
+      <fa-icon [icon]="faEdit"></fa-icon>
+    </div>
+    <br />
+    <div class="addskill">
+      <p>Angular</p>
+      <!-- <img
+        src="../../assets/383147_edit_icon.png"
+        alt=""
+        width="30"
+        height="25"
+      /> -->
+      <fa-icon [icon]="faEdit"></fa-icon>
+    </div>
+  </div>
+  </div>
+  
+  <div class="main-content">
+    <div class="interview-schedule">
+      <h2>Upcoming Inteviews</h2>
+        <div class="Mid_Schedule" >
+          <h5>Team Meeting - Query Session</h5>
+          <!-- <p>{{user}}</p> -->
+          <p>Hi this is item</p>
+          <!-- <p>4-5pm</p> -->
+        </div>
+    </div>
+    <div class="Right">
+      <h2>History</h2>
+      <div class="a1">
+          <p>50</p>
+          <div class="a2">
+            <p>30</p>
+            <div class="a3">
+              <p>20</p>
+            </div>
+          </div>
+      </div>
+      <div>
+        <h3>Incentive</h3>
+      </div>
+    </div>
+  </div>
+  <!-- <app-login #log></app-login> -->
+</body>

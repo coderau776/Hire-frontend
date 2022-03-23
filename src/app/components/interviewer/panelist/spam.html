@@ -1,0 +1,117 @@
+<body>
+    <nav role="navigation">
+      <div id="menuToggle">
+        <!--
+        A fake / hidden checkbox is used as click reciever,
+        so you can use the :checked selector on it.
+        -->
+        <input type="checkbox" />
+        
+        <!--
+        Some spans to act as a hamburger.
+        
+        They are acting like a real hamburger,
+        not that McDonalds stuff.
+        -->
+        <span></span>
+        <span></span>
+        <span></span>
+        
+        <!--
+        Too bad the menu has to be inside of the button
+        but hey, it's pure CSS magic.
+        -->
+        <ul id="menu">
+          <div class="Card" *ngIf="log.user">
+            <h1>Hire</h1>
+            <img class="card_img" src="{{ log.user.photoUrl }}" />
+      
+            <div class="card-block">
+              <h4 class="card-title">{{ log.user.name }}</h4>
+              <p class="card-text">{{ log.user.email }}</p>
+              <button class="btn btn-danger" (click)="log.signOut()">Sign Out</button>
+            </div>
+            <hr>
+            <div class="skill">
+              <h2>Skills</h2>
+              <br />
+              <div class="addskill">
+                <p>Angular</p>
+                <img
+                  src="../../assets/383147_edit_icon.png"
+                  alt=""
+                  width="30"
+                  height="25"
+                />
+              </div>
+              <br />
+              <div class="addskill">
+                <p>Angular</p>
+                <img
+                  src="../../assets/383147_edit_icon.png"
+                  alt=""
+                  width="30"
+                  height="25"
+                />
+              </div>
+              <br />
+              <div class="addskill">
+                <p>Angular</p>
+                <img
+                  src="../../assets/383147_edit_icon.png"
+                  alt=""
+                  width="30"
+                  height="25"
+                />
+              </div>
+            </div>
+          </div>
+        </ul>
+       
+      </div>
+    </nav>
+    <div class="Main">
+      
+      <app-login #log></app-login>
+      <div class="Mid">
+        <h2>Upcoming Inteviews</h2>
+        <div class="Mid_Schedule" *ngFor="let user of users">
+          <h5>Team Meeting - Query Session</h5>
+          <p>{{user.Time}}</p>
+          <!-- <p>4-5pm</p> -->
+        </div>
+        <!-- <div class="Mid_Schedule">
+          <h5>Team Meeting - Query Session</h5>
+          <p>4-5pm</p>
+        </div>
+        <div class="Mid_Schedule">
+          <h5>Team Meeting - Query Session</h5>
+          <p>4-5pm</p>
+        </div>
+        <div class="Mid_Schedule">
+          <h5>Team Meeting - Query Session</h5>
+          <p>4-5pm</p>
+        </div>
+        <div class="Mid_Schedule">
+          <h5>Team Meeting - Query Session</h5>
+          <p>4-5pm</p>
+        </div> -->
+      </div>
+      <div class="Right">
+        <h2>History</h2>
+        <div class="a1">
+            <p>50</p>
+            <div class="a2">
+              <p>30</p>
+              <div class="a3">
+                <p>20</p>
+              </div>
+            </div>
+        </div>
+        <div>
+          <h3>Incentive</h3>
+        </div>
+      </div>
+    </div>
+  </body>
+  

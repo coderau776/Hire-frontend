@@ -5,6 +5,7 @@ import { AfterLoginComponent } from './components/after-login/after-login.compon
 import { LoginComponent } from './components/login/login.component';
 import { RecruiterComponent } from './components/recruiter/recruiter.component';
 import { InterviewerComponent } from './components/interviewer/interviewer.component';
+import { PanelistComponent } from './components/interviewer/panelist/panelist.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path:'al',
     component: AfterLoginComponent
+  },
+  {
+    path:'pan',
+    component:PanelistComponent
   },
   {
     path:'interv',

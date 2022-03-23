@@ -20,6 +20,7 @@ import { EditFormComponent } from './components/interviewer/slot-view/edit-form/
 import { ScheduleComponent } from './components/interviewer/slot-view/schedule/schedule.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PanelistComponent } from './components/interviewer/panelist/panelist.component';
 
 
 
@@ -35,7 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     SlotViewComponent,
     CalendarComponent,
     EditFormComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    PanelistComponent
   ],
   imports: [
     BrowserModule,
