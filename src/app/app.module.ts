@@ -24,6 +24,9 @@ import { PanelistComponent } from './components/interviewer/panelist/panelist.co
 import { LeftComponent } from './components/recruiter/left/left.component';
 import { RightComponent } from './components/recruiter/right/right.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+
 
 
 
@@ -54,6 +57,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatPaginatorModule,
+    MatTableModule,
   ],
   providers: [
     {
