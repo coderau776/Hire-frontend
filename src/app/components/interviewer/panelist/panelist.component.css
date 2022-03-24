@@ -219,14 +219,53 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
  .main-content{
      display: flex;
      flex-wrap: wrap;
-    margin-left: 280px;
+    margin-left: 50px;
+    margin-top: 20px;
+    transition: all 0.3s;
  }
- .Mid {
+ /* .Mid {
     width: 60%;
     align-items: center;
     text-align: center;
     display: flex;
     flex-direction: column;
+} */
+.interview-schedule{
+    background: #142F43;
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+padding: 15px;
+margin-right: 50px;
+width: 45vw;
+text-align: center;
+}
+
+.scroll-control {
+    max-height:  78vh;
+    overflow-x: hidden;
+                overflow-y: auto;
+                padding: 40px;
+                
+                
+}
+.scroll-control::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+.scroll-control::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+.scroll-control::-webkit-scrollbar-thumb
+{
+	background-color: #00c0fa;
 }
 
 .interview-schedule h2 {
@@ -234,16 +273,18 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
     font-size: 40px;
     margin-top: 2%;
     margin-bottom: 8%;
+    color: #fff;
 }
 
 .Mid_Schedule {
     border: 1px #1b9df0 solid;
-    width: 60%;
+    
     color: #1b9df0;
     text-align: center;
     align-items: center;
     margin: 0.8%;
     border-radius: 5px;
+    
 }
 
 .Mid_Schedule:hover {
@@ -294,3 +335,16 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
     margin-left: 25%;
     margin-bottom: 10%;
 }
+input[type="checkbox"]:checked ~ .main-content {
+    margin-left: 280px;
+    transition: all 0.3s;
+    
+}
+
+
+/* 
+input[type="checkbox"]:checked ~ .main-content > .interview-schedule {
+    width: 30vw;
+    transition: all 0.3s;
+    
+} */
