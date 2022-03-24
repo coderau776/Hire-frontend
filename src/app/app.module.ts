@@ -18,6 +18,14 @@ import { CalendarComponent } from './components/interviewer/slot-view/calendar/c
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EditFormComponent } from './components/interviewer/slot-view/edit-form/edit-form.component';
 import { ScheduleComponent } from './components/interviewer/slot-view/schedule/schedule.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { PanelistComponent } from './components/interviewer/panelist/panelist.component';
+import { LeftComponent } from './components/recruiter/left/left.component';
+import { RightComponent } from './components/recruiter/right/right.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 
 @NgModule({
@@ -32,13 +40,20 @@ import { ScheduleComponent } from './components/interviewer/slot-view/schedule/s
     SlotViewComponent,
     CalendarComponent,
     EditFormComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    PanelistComponent,
+    LeftComponent,
+    RightComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SocialLoginModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     {

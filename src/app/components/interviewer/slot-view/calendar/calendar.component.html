@@ -33,7 +33,7 @@
                                 <div #d [ngClass]="{'notdate':j==='',
                                                  'disable':((month==0)&&num(j)<=currentMonthDisable)
                                                             ||((month==1)&&num(j)<=nextMonthDisable)}" 
-                                    (click)="dateClick($event)" style="width: 30px;height: 30px;padding-top:5px;cursor: pointer;">{{j}}</div>
+                                    (click)="dateClick($event,j)" style="width: 30px;height: 30px;padding-top:5px;cursor: pointer;">{{j}}</div>
                             </td>
                         </tr>
                     </ng-container>

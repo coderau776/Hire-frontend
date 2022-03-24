@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
+import { LoginService } from 'src/app/services/login.service';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'app-google-sign-in',
@@ -9,23 +11,37 @@ import { GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-soc
 })
 export class GoogleSignInComponent implements OnInit {
 
-  user:SocialUser;
-  loggedIn:boolean;
-  constructor(private authService:SocialAuthService, private router:Router) { }
+  
+  constructor(private authService:SocialAuthService, private router:Router,private loginService:LoginService) { }
   
 
 
   ngOnInit(): void {
     this.authService.authState.subscribe((user)=>{
-      this.user=user;
-      this.loggedIn=(user!=null);
+      this.loginService.setUser(user);
       console.log(user)
     })
   }
 
   signIn():void{
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user)=>{
-      this.router.navigate(['/al'])
+      this.router.navigate(['/pan'])
+      console.log("Sign done now in then")
+
+      // this.loginService.getPost().subscribe((user:User)=>{
+
+
+      //   console.log("users post in service"+user.post)
+      //   if(user.post==="Interviewer"){
+      //     this.router.navigate(['/pan'])
+      //   }
+      //   else if(user.post==="Recruiter"){
+      //     this.router.navigate(['/recr'])
+      //   }
+        
+      // })
+    
+        
     });
   }
 

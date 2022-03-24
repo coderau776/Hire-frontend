@@ -1,5 +1,6 @@
 import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 import { SocialAuthService, SocialUser } from 'angularx-social-login';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-after-login',
@@ -9,16 +10,13 @@ import { SocialAuthService, SocialUser } from 'angularx-social-login';
 })
 export class AfterLoginComponent implements OnInit {
 
-  user:SocialUser=new SocialUser();
+  user:SocialUser;
   loggedIn:boolean=false;
-  constructor(private authService:SocialAuthService) { 
+  constructor(private authService:SocialAuthService,private loginService:LoginService) { 
   }
 
   ngOnInit(): void {
-    this.authService.authState.subscribe((user)=>{
-      this.user=user;
-      this.loggedIn=(user!=null);
-    })
+    this.user = this.loginService.getUser();
   }
 
 }
