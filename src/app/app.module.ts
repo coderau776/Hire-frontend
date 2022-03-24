@@ -21,6 +21,10 @@ import { ScheduleComponent } from './components/interviewer/slot-view/schedule/s
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PanelistComponent } from './components/interviewer/panelist/panelist.component';
+import { LeftComponent } from './components/recruiter/left/left.component';
+import { RightComponent } from './components/recruiter/right/right.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 
@@ -37,7 +41,10 @@ import { PanelistComponent } from './components/interviewer/panelist/panelist.co
     CalendarComponent,
     EditFormComponent,
     ScheduleComponent,
-    PanelistComponent
+    PanelistComponent,
+    LeftComponent,
+    RightComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -46,6 +53,7 @@ import { PanelistComponent } from './components/interviewer/panelist/panelist.co
     FontAwesomeModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     {

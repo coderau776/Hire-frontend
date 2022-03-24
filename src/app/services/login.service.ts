@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { SocialUser } from 'angularx-social-login';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/User';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,13 +26,11 @@ export class LoginService {
     return this.user;
   }
 
-  getPost():string{
+  getPost():Observable<User>{
     console.log(this.url+"/"+this.user.email)
 
-    this.http.get<User>(this.url+"/"+this.user.email).subscribe((user:User)=>{
-      console.log(user);
-    })
-    return "";
+    return this.http.get<User>(this.url+"/"+this.user.email);
+    
   }
 
 
