@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl} from '@angular/forms';
+import { RecruiterService } from 'src/app/services/recruiter.service';
 
 @Component({
   selector: 'app-left',
@@ -8,13 +8,13 @@ import {FormGroup, FormControl} from '@angular/forms';
 })
 export class LeftComponent implements OnInit {
 
-  range = new FormGroup({
-    start: new FormControl(),
-    end: new FormControl(),
-  });
-  constructor() { }
+  constructor(private recruiterService:RecruiterService) { }
 
   ngOnInit(): void {
   }
 
+  onCheck(event:any){
+   this.recruiterService.check.emit(event.target.checked);
+
+  }
 }

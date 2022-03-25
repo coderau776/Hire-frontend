@@ -24,7 +24,8 @@ import { PanelistComponent } from './components/interviewer/panelist/panelist.co
 import { LeftComponent } from './components/recruiter/left/left.component';
 import { RightComponent } from './components/recruiter/right/right.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Filter } from './components/recruiter/right/filter';
 
 
 
@@ -44,7 +45,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PanelistComponent,
     LeftComponent,
     RightComponent,
-    
+    Filter
   ],
   imports: [
     BrowserModule,
@@ -54,6 +55,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    NgxPaginationModule
   ],
   providers: [
     {
