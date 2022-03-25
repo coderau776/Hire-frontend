@@ -10,11 +10,9 @@ import { CalendarServiceService } from 'src/app/services/calendar-service.servic
 })
 export class ScheduleComponent implements OnInit {
 
-<<<<<<< HEAD
-  selecteddate:Date;
-=======
+
   selecteddate: Date ;
->>>>>>> aman
+
   events= [{"id":1,"Dates":new Date(2022,3,24),"Time":"8:00 AM",task:"Java interview"},
   {"id":2,"Date":new Date(2022,2,22),"Time":"10:00 AM",task:"Angular interview"},
   {"id":3,"Date":new Date(2022,3,24),"Time":"6:00 PM",task:"React interview"},
@@ -33,11 +31,8 @@ export class ScheduleComponent implements OnInit {
   ngOnInit(): void {   
     this.calendarService.initialize(); 
     this.selecteddate=this.calendarService.currentMonth;
-<<<<<<< HEAD
-    this.calendarService.dateEvent.subscribe((date)=>{
-=======
+
     this.calendarService.dateEvent.subscribe((date: Date)=>{
->>>>>>> aman
       this.selecteddate=date;
     })
   }
