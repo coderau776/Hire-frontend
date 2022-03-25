@@ -22,7 +22,7 @@ export class RightComponent implements OnInit {
     this.service.users().subscribe((Response:any)=>{
       this.dataSource=new MatTableDataSource(Response)
       this.dataSource.paginator=this.paginator;
-      console.log('response is ',Response);
+     
       
     })
   }
