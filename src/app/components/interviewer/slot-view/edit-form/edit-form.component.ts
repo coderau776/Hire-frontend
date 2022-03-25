@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup,FormControl } from '@angular/forms';
 import { CalendarServiceService } from 'src/app/services/calendar-service.service'; 
 
 
@@ -14,6 +14,10 @@ export class EditFormComponent implements OnInit {
   flag1 = false;
   flag2 = false;
   //flag3 = false;
+    range = new FormGroup({
+    start: new FormControl(),
+    end: new FormControl(),
+  });
   
   @ViewChild('st')
   st:ElementRef;

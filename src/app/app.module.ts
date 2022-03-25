@@ -30,7 +30,6 @@ import {MatTableModule} from '@angular/material/table';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent, 
@@ -47,6 +46,7 @@ import {MatTableModule} from '@angular/material/table';
     PanelistComponent,
     LeftComponent,
     RightComponent,
+    
     
   ],
   imports: [
