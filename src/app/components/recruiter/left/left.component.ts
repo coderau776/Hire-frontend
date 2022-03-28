@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl} from '@angular/forms';
+import {FormGroup, FormControl,FormBuilder} from '@angular/forms';
 import { RecruiterService } from 'src/app/services/recruiter.service';
+
 
 @Component({
   selector: 'app-left',
@@ -8,13 +9,30 @@ import { RecruiterService } from 'src/app/services/recruiter.service';
   styleUrls: ['./left.component.css']
 })
 export class LeftComponent implements OnInit {
-
+ 
+   Rounds: FormGroup;
+   skills: FormGroup;
   range = new FormGroup({
     start: new FormControl(),
     end: new FormControl(),
   });
 
-  constructor(private recruiterService:RecruiterService) { }
+   //constructor(private recruiterService:RecruiterService) { }
+  constructor(fb: FormBuilder,private recruiterService:RecruiterService) {
+    this.Rounds = fb.group({
+      round1: false,
+      round2: false,
+      round3: false,
+      hr: false,
+    });
+    this.skills = fb.group({
+      angular: false,
+      java: false,
+      devops: false,
+      spring: false,
+    });
+
+  }
 
   ngOnInit(): void {
   }
