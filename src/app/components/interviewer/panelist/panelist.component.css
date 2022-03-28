@@ -43,10 +43,10 @@ body {
 #sidebarMenu {
     height: 100%;
     position: fixed;
-    left: 0;
-    width: 250px;
+    right: 0;
+    width: 300px;
     
-    transform: translateX(-250px);
+    transform: translateX(+300px);
     transition: transform 250ms ease-in-out;
     background: #142f43;
 box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -99,7 +99,7 @@ input[type=checkbox] {
     height: 100%;
     width: 100%;
     top: 22px;
-    left: 15px;
+    right: 20px;
     height: 22px;
     width: 22px;
 }
@@ -174,11 +174,15 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 hr {
     margin-bottom: 0vw;
 }
+.skills h2{
+    color: white;
+    text-align: center;
+}
 .skill{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background: linear-gradient(rgb(255, 121, 32),rgb(255, 72, 0));
+    
     height: max-content;
 }
 .skill h2{
@@ -193,7 +197,7 @@ hr {
     width: 13vw;
     justify-content: space-between;
     margin-bottom: 6%;
-    background: rgba(255, 255, 255, 0.445);
+    background: rgb(255, 121, 32);
 box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 backdrop-filter: blur( 3px );
 -webkit-backdrop-filter: blur( 3px );
@@ -217,9 +221,9 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
      cursor: pointer;
  }
  .main-content{
-     display: flex;
-     flex-wrap: wrap;
-    margin-left: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 5vw;
     margin-top: 20px;
     transition: all 0.3s;
  }
@@ -238,16 +242,17 @@ backdrop-filter: blur( 4px );
 border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
 padding: 15px;
-margin-right: 50px;
+margin-top: 30px;
+margin-left: 3vw;
 width: 45vw;
 text-align: center;
 }
 
 .scroll-control {
-    max-height:  78vh;
+    max-height:  30vh;
     overflow-x: hidden;
                 overflow-y: auto;
-                padding: 40px;
+                padding: 0px 40px;
                 
                 
 }
@@ -272,7 +277,7 @@ text-align: center;
     font-weight: bolder;
     font-size: 40px;
     margin-top: 2%;
-    margin-bottom: 8%;
+    margin-bottom: 2%;
     color: #fff;
 }
 
@@ -335,11 +340,11 @@ text-align: center;
     margin-left: 25%;
     margin-bottom: 10%;
 }
-input[type="checkbox"]:checked ~ .main-content {
+/* input[type="checkbox"]:checked ~ .main-content {
     margin-left: 280px;
     transition: all 0.3s;
     
-}
+} */
 
 
 /* 
@@ -348,3 +353,189 @@ input[type="checkbox"]:checked ~ .main-content > .interview-schedule {
     transition: all 0.3s;
     
 } */
+
+.navigator{
+    position: fixed;
+    background-color: #142f43;
+    height: 100vh;
+    width: 4vw;
+}
+.navigator h1{
+    color:rgb(255, 121, 32);
+    font-weight: 900;
+    margin-left: 14px;
+}
+.greet{
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: 5vh;
+    margin-left: 3vw;
+}
+.incentive{
+    display: flex;
+    flex-wrap: wrap;
+   justify-content: center;
+   margin-top: 20px;
+   transition: all 0.3s;
+   
+}
+.incentive_card{
+    height: 200px;
+    width: 200px;
+    background-color: #ffbc80;
+    border-radius: 15px;
+    position: relative;
+    margin-left: 3vw;
+    margin-top: 20px;
+}
+.p1{
+    position: absolute;
+    bottom: 1px;
+    left: 5px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.p2{
+    position: absolute;
+    top: 80px;
+    left: 85px;
+    font-size: 25px;
+    font-weight: bold;
+}
+@import url("https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css");
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@500;600;900&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+.part2 {
+    margin-top: 5vh;
+    margin-left: 3vw;
+}
+.part2 h1{
+    text-align: center;
+}
+
+ul {
+    margin-top: 5vh;
+  --col-gap: 2rem;
+  --barH: 1rem;
+  --roleH: 2rem;
+  --flapH: 2rem;
+
+  width: min(80rem, 90%);
+  margin-inline: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: var(--col-gap);
+  padding-inline: calc(var(--col-gap) / 2);
+
+  justify-content: center;
+  align-items: flex-start;
+  list-style: none;
+}
+ul li {
+  width: 20em;
+  height: 30em;
+  display: grid;
+  grid-template:
+    "role"
+    "icon"
+    "title"
+    "descr";
+  align-items: flex-start;
+  gap: 1rem;
+  padding-block-end: calc(var(--flapH) + 1rem);
+  text-align: center;
+  background: var(--accent-color);
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.6) var(--roleH),
+    rgba(0, 0, 0, 0.4) calc(var(--roleH) + 0.5rem),
+    rgba(0, 0, 0, 0) calc(var(--roleH) + 0.5rem + 5rem)
+  );
+  clip-path: polygon(
+    calc(var(--col-gap) / -2 - 5px) 0,
+    calc(100% + var(--col-gap) / 2 + 5px) 0,
+    calc(100% + var(--col-gap) / 2 + 5px ) calc(100% - var(--flapH)),
+    50% 100%,
+    calc(var(--col-gap) / -2 - 5px) calc(100% - var(--flapH))
+  );
+}
+
+/* bar */
+ul li::before {
+  content: "";
+  grid-area: role;
+  height: var(--barH);
+  width: calc(100% + var(--col-gap));
+  margin-left: calc(var(--col-gap) / -2);
+  margin-top: calc(var(--roleH) / 2 - var(--barH) / 2);
+  background: grey;
+  z-index: -1;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.2) 30%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(0, 0, 0, 0.1) 60%,
+    rgba(0, 0, 0, 0.2) 70%,
+    rgba(0, 0, 0, 0.4)
+  );
+}
+
+/* role */
+ul li::after {
+  content: "";
+  grid-area: role;
+  background: var(--accent-color);
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.2) 30%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(0, 0, 0, 0.1) 60%,
+    rgba(0, 0, 0, 0.2) 70%,
+    rgba(0, 0, 0, 0.4)
+  );
+  height: var(--roleH);
+}
+
+ul li .icon,
+ul li .title,
+ul li .descr {
+  padding-inline: 1rem;
+  color: white;
+  text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+ul li .icon {
+  font-size: 3rem;
+}
+ul li .title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+ul li .descr {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.credits {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+.credits a {
+  color: var(--color);
+}
+.usericon{
+    color: white;
+}

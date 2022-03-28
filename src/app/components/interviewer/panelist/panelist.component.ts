@@ -4,7 +4,8 @@ import { LoginService } from 'src/app/services/login.service';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faUser } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-panelist',
   templateUrl: './panelist.component.html',
@@ -13,6 +14,8 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 export class PanelistComponent implements OnInit {
 
   users:string[]; 
+  user_name = localStorage.getItem('user');
+  faUser = faUser;
   faEdit = faEdit;
   faRight = faArrowRight;
   log:SocialUser;
