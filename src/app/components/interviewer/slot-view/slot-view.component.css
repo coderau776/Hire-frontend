@@ -1,11 +1,17 @@
-/* .bada-card{
-    
-    
+
+html,body{
+    background-color: #f0fbfc!important;
+    padding: 1rem;
+}
+.bada-card{
+   
+    background-color: #fffffc;
     border-radius: 1rem;
-    box-shadow: 0px 0px 51px rgba(90, 89, 89, 0.411);
-    padding: 3rem 5rem 8rem 5rem;
-    margin: 2rem 6rem;
+    box-shadow: 0px 0px 5px rgba(90, 89, 89, 0.411);
+    /* padding: 3rem 1rem 2rem 1rem; */
+    height: 98%;
+    /* margin: 0rem 1rem 2rem 9rem; */
 }
 .chota{
-    background-image: url('../../../../assets/6308.jpg');
-} */
+    /* margin: 1rem; */
+}
