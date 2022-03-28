@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
-import {
-  GoogleLoginProvider,
-} from 'angularx-social-login';
+import {  GoogleLoginProvider,} from 'angularx-social-login';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +16,7 @@ import { CalendarComponent } from './components/interviewer/slot-view/calendar/c
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EditFormComponent } from './components/interviewer/slot-view/edit-form/edit-form.component';
 import { ScheduleComponent } from './components/interviewer/slot-view/schedule/schedule.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PanelistComponent } from './components/interviewer/panelist/panelist.component';
 import { LeftComponent } from './components/recruiter/left/left.component';
@@ -26,6 +24,10 @@ import { RightComponent } from './components/recruiter/right/right.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -48,6 +50,7 @@ import {MatTableModule} from '@angular/material/table';
     LeftComponent,
     RightComponent,
     
+    
   ],
   imports: [
     BrowserModule,
@@ -59,6 +62,11 @@ import {MatTableModule} from '@angular/material/table';
     BrowserAnimationsModule,
     MatPaginatorModule,
     MatTableModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     {

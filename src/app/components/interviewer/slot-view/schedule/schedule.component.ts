@@ -29,6 +29,7 @@ export class ScheduleComponent implements OnInit {
   ngOnInit(): void {   
     this.calendarService.initialize(); 
     this.selecteddate=this.calendarService.currentMonth;
+
     this.calendarService.dateEvent.subscribe((date: Date)=>{
       this.selecteddate=date;
     })

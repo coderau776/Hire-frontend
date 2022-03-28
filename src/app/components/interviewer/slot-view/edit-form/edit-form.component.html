@@ -1,15 +1,24 @@
-<div class="container">
+<div class="container" style="padding:2rem 5rem 2rem 5rem;">
     <form #slotForm="ngForm" (ngSubmit)="getvalues(slotForm.value)" >
 
         <h4> {{ Date1.toDateString() }} </h4>
-        <label for="stime">Start Time : </label>
-        <input #st type="time" ngModel id="stime" name="startTime">
-        <br>
-        <label for="etime">End_ Time : </label>
-        <input #et type="time" ngModel id="etime" name="endTime">
-        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="stime">Start Time : </label>
+                <input #st class="form-control" type="time" ngModel id="stime" name="startTime">
+            </div>
+            <div class="col-md-6">
+                <label for="etime">End Time : </label>
+                <input #et class="form-control" type="time" ngModel id="etime" name="endTime">  
+            </div>
+        </div>
+        
+        
+        
+        
+ 
 
-        <h5>Select the type of slot :</h5>
+        <!-- <h5>Select the type of slot :</h5> -->
         <button (click)="instant()" class="select" type="button" name="type">Instant</button>
         <button (click)="recurring()" class="select" type="button" name="type">Recurring</button>
 
@@ -21,13 +30,14 @@
         <br>
 
         <div class="recurring" *ngIf="flag1">
+            
             <label for="sDate">Start Date :</label>
-            <input type="date" ngModel id="sDate" name="start date">
-            <br>
-            <label for="eDate">End_ Date :</label>
-            <input type="date" ngModel id="eDate" name="end date">
+            <input class="form-control" type="date" ngModel id="sDate" name="start date">
 
-            <br>
+            <label for="eDate">End Date :</label>
+            <input class="form-control" type="date" ngModel id="eDate" name="end date">
+
+
             <button (click)="daily()" class="select" type="button">Daily</button>
             <button (click)="weekly()" class="select" type="button">Weekly</button>
 
@@ -42,32 +52,31 @@
         <div class="day" *ngIf="flag2 && flag1">
 
             <h4>Select the Day</h4>
-            <input type="radio" ngModel id="mon" name="day" value="Monday">
-            <label for="mon">Monday</label>
+            <input class="form-check-input" type="radio" ngModel id="mon" name="day" value="Monday">
+            <label class="form-check-label" for="mon">Monday</label>
             <br>
-            <input type="radio" ngModel id="tue" name="day" value="Tuesday">
-            <label for="tue">Tuesday</label>
+            <input class="form-check-input" type="radio" ngModel id="tue" name="day" value="Tuesday">
+            <label class="form-check-label" for="tue">Tuesday</label>
             <br>
-            <input type="radio" id="wed" name="day" value="Wednesday">
-            <label for="wed">Wednesday</label>
+            <input class="form-check-input" type="radio" id="wed" name="day" value="Wednesday">
+            <label class="form-check-label" for="wed">Wednesday</label>
             <br>
-            <input type="radio" ngModel id="thu" name="day" value="Thursday">
-            <label for="thu">Thursday</label>
+            <input class="form-check-input" type="radio" ngModel id="thu" name="day" value="Thursday">
+            <label class="form-check-label" for="thu">Thursday</label>
             <br>
-            <input type="radio" ngModel id="fri" name="day" value="Friday">
-            <label for="fri">Friday</label>
+            <input class="form-check-input" type="radio" ngModel id="fri" name="day" value="Friday">
+            <label class="form-check-label" for="fri">Friday</label>
             <br>
-            <input type="radio" ngModel id="sat" name="day" value="Saturday">
-            <label for="sat">Saturdayy</label>
+            <input class="form-check-input" type="radio" ngModel id="sat" name="day" value="Saturday">
+            <label class="form-check-label" for="sat">Saturday</label>
 
         </div>
-        <br>
 
-        <button (click)="showmsg()" class="done">Done</button>
+        <button class="done">Done</button>
 
-        <div class="msg" *ngIf="flag3">
+        <!-- <div class="msg" *ngIf="flag3">
             <p>Slot Provided Successfully!!!!</p>
-        </div>
+        </div> -->
 
     </form>
 </div>

@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup,FormControl } from '@angular/forms';
 import { CalendarServiceService } from 'src/app/services/calendar-service.service'; 
 
 
@@ -13,7 +13,11 @@ export class EditFormComponent implements OnInit {
   Date1 : Date;
   flag1 = false;
   flag2 = false;
-  flag3 = false;
+  //flag3 = false;
+    range = new FormGroup({
+    start: new FormControl(),
+    end: new FormControl(),
+  });
   
   @ViewChild('st')
   st:ElementRef;
@@ -46,10 +50,10 @@ export class EditFormComponent implements OnInit {
     this.flag2= true;
   }
 
-  showmsg(){
-    this.flag3 = true;
+  // showmsg(){
+  //   this.flag3 = true;
 
-  }
+  // }
 
   getvalues(val: any){
     val = {...val,"recurring":this.flag1,"weekly":this.flag2}
@@ -57,7 +61,7 @@ export class EditFormComponent implements OnInit {
     this.st.nativeElement.value="";
     this.et.nativeElement.value="";
     console.log(val);
-
+    this.flag1=false;
   }
 
   
