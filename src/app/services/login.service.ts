@@ -16,6 +16,7 @@ export class LoginService {
 
   setUser(user:SocialUser){
     this.user = user;
+    localStorage.setItem('user',user.name);
     // this.http.post(this.url,{email:user.email,post:"Interviewer"}).subscribe((data)=>{
     //   console.log(this.getPost());
     // })
