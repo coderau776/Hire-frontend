@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faArrowRight, faUser, faCalendar } from '@fortawesome/free-solid-svg-icons';
+import swal from 'SweetAlert';
 @Component({
   selector: 'app-slot-view',
   templateUrl: './slot-view.component.html',
@@ -16,6 +17,7 @@ export class SlotViewComponent implements OnInit {
     if(this.user == null){
       this.router.navigate(['/']);
     }
+    swal ( "Oops" ,  "Please Login to continue" ,  "error" )
   }
   navtopan():void{
     

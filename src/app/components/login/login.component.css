@@ -13,3 +13,6 @@ html,body{
     float: right;margin-top: 20%;margin-right: 10rem;text-align: center;
   }
   
+#hello{
+  /* display:none; */
+}

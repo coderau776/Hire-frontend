@@ -5,7 +5,7 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { faArrowRight, faUser, faCalendar } from '@fortawesome/free-solid-svg-icons';
-
+import swal from 'SweetAlert';
 
 @Component({
   selector: 'app-panelist',
@@ -48,6 +48,9 @@ export class PanelistComponent implements OnInit {
     if(this.user == null){
       this.router.navigate(['/']);
     }
+    swal ( "Oops" ,  "Please Login to continue" ,  "error" )
+    // alert("Please login to continue");
+   
   }
   signOut(){
     this.router.navigate(['/']);
