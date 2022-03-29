@@ -44,9 +44,9 @@ body {
     height: 100%;
     position: fixed;
     right: 0;
-    width: 300px;
+    width: 100%;
     
-    transform: translateX(+300px);
+    transform: translateX(+100%);
     transition: transform 250ms ease-in-out;
     background: #142f43;
 box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -54,6 +54,7 @@ backdrop-filter: blur( 11.5px );
 -webkit-backdrop-filter: blur( 11.5px );
 z-index: 1000;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
+text-align: center;
 }
 .sidebarMenuInner{
     margin:0;
@@ -82,7 +83,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
     text-decoration: none;
 }
 input[type="checkbox"]:checked ~ #sidebarMenu {
-    transform: translateX(0);
+    transform: translateX(0%);
 }
 
 input[type=checkbox] {
@@ -151,53 +152,65 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 }
 .Card{
     color: #fff;
+    text-align: center;
 }
 .Card h1{
-    margin-left: 80px;
     margin-top: 10px;
     color: #fff;
+    font-size: 8vh;
 }
 .card-block{
     text-align: center;
 }
 .card_img {
-    width: 120px;
-    height: 120px;
+    width: 20vh;
+    height: 20vh;
     border-radius: 50%;
-    margin-top: 5%;
-    margin-left: 65px;
+    margin-top: 2vh;
+    
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 }
 .card-title{
-    margin-top: 5px;
+    margin-top: 1.5vh;
     color: #fff;
+    font-size: 3.5vh;
+}
+.card-email{
+    margin-top: 15px;
+    color: #fff;
+    font-size: 2vh;
+    word-wrap: break-word;
 }
 hr {
     margin-bottom: 0vw;
 }
+.skills{
+    text-align: center;
+}
 .skills h2{
     color: white;
     text-align: center;
+    font-size: 4vh;
+    margin-top: 2vh;
 }
-.skill{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.signout{
     
-    height: max-content;
+    margin-top: 2vh;
+    width: 150px;
+    padding: 2vh;
+    border-radius: 20px;
 }
 .skill h2{
     color: #fff;
 }
 .addskill {
-    display: flex;
-    flex-direction: row;
     
-    padding: 5px;
+    padding: 10px;
     border-radius: 10px;
-    width: 13vw;
+    width: 180px;
     justify-content: space-between;
-    margin-bottom: 6%;
+    margin-bottom: 1vh;
+    margin: 0 auto;
     background: rgb(255, 121, 32);
 box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 backdrop-filter: blur( 3px );
@@ -213,7 +226,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
  
  .addskill p {
      /* margin-left: -30%; */
-     margin-left: 2vw;
+     
      margin-top: 2px;
    
  }
@@ -361,11 +374,12 @@ input[type="checkbox"]:checked ~ .main-content > .interview-schedule {
     background-color: #142f43;
     height: 100vh;
     width: 60px;
+    text-align: center;
 }
 .navigator h1{
     color:rgb(255, 121, 32);
     font-weight: 900;
-    margin-left: 14px;
+    font-size: 50px;
 }
 .greet{
     font-weight: bold;
@@ -539,14 +553,13 @@ ul li .descr {
   color: var(--color);
 }
 .usericon{
-    color: rgb(255, 255, 255);
+    color: #ff5c23;
     font-size: 30px;
     position: absolute;
     top: 35vh;
     left: 17px;
-    background-color: #ff5c23;
-    padding: 15px;
-    border-radius: 50%;
+    text-shadow: 10px 10px 10px blue;
+    transform: scale(1.4);
     
 }
 .calicon{
@@ -570,6 +583,7 @@ ul li .descr {
     border-radius: 50%;
     width: 130px;
     margin-top: 50px;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     
 }
 .user_name{
