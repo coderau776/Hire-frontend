@@ -7,11 +7,15 @@ import { faArrowRight, faUser, faCalendar } from '@fortawesome/free-solid-svg-ic
   styleUrls: ['./slot-view.component.css']
 })
 export class SlotViewComponent implements OnInit {
+  user = JSON.parse(localStorage.getItem('user')!);
   faUser = faUser;
   faCal = faCalendar;
   constructor(private router:Router) { }
 
   ngOnInit(): void {
+    if(this.user == null){
+      this.router.navigate(['/']);
+    }
   }
   navtopan():void{
     

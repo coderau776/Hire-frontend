@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { faArrowRight, faUser, faCalendar } from '@fortawesome/free-solid-svg-icons';
 
+
 @Component({
   selector: 'app-panelist',
   templateUrl: './panelist.component.html',
@@ -44,9 +45,13 @@ export class PanelistComponent implements OnInit {
 
   ngOnInit(): void {
     this.users=["10:00","12:00"];
+    if(this.user == null){
+      this.router.navigate(['/']);
+    }
   }
   signOut(){
-    console.log("humne koshish ki thi")
+    this.router.navigate(['/']);
+    localStorage.removeItem('user');
   }
   manage(){
     this.router.navigate(['/interv']);
