@@ -539,11 +539,15 @@ ul li .descr {
   color: var(--color);
 }
 .usericon{
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 30px;
     position: absolute;
     top: 35vh;
     left: 17px;
+    background-color: #ff5c23;
+    padding: 15px;
+    border-radius: 50%;
+    
 }
 .calicon{
     color: white;
@@ -578,6 +582,7 @@ ul li .descr {
     font-size: 100%;
     margin-top: 10px;
     text-align: center;
+    word-wrap: break-word;
 }
 .position{
     margin-top: 10px;
