@@ -15,19 +15,21 @@
   
     <fa-icon class="usericon" [icon]="faUser"></fa-icon>
   </div>
+  
   <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
   <label for="openSidebarMenu" class="sidebarIconToggle">
     <div class="spinner diagonal part-1"></div>
     <div class="spinner horizontal"></div>
     <div class="spinner diagonal part-2"></div>
   </label>
+
   <div id="sidebarMenu">
-    <div class="Card" *ngIf="log">
+    <div class="Card" >
     <h1>HIRE</h1>
-    <img class="card_img" *ngIf="log" src="{{ log.photoUrl }}" >
+    <img class="card_img" *ngIf="user" src="{{ user.photoUrl }}" >
   </div>
   <div class="card-block">
-    <h4 class="card-title" *ngIf="user_name">{{ user_name }}</h4>
+    <h4 class="card-title" *ngIf="user">{{ user.name }}</h4>
     <h4 class="card-title">SDE-1</h4>
     
     <button class="btn btn-danger signout" (click)="signOut()">Sign Out</button>
@@ -77,7 +79,7 @@
   
   <div class="main-content">
     <div class="part1">
-    <p class="greet">Good Evening John ....</p>
+    <p class="greet" *ngIf="user">Good Evening {{user.firstName}} ....</p>
     <div class="incentive">
       <div class="incentive_card">
         <p class="p1">Monthly</p>
@@ -172,6 +174,25 @@
           
         </ul>
       </div>
+      <div class="user-profile">
+        <img class="user_img" *ngIf="user" src="{{ user.photoUrl }}" >
+        <p class="user_name" *ngIf="user">{{ user.name }}</p>
+        <p class="user_email" *ngIf="user">{{ user.email }}</p>
+        <p class="position"> SDE 2</p>
+        <hr>
+        <p class="skil">Skills</p>
+        <div class="user_skills">
+          <div class="skill-card">
+            <p>Primary</p>
+          </div>
+          <div class="skill-card">
+            <p>Secondary</p>
+          </div>
+          <div class="skill-card">
+            <p>Tertiary</p>
+          </div>
+        </div>
+      </div>
     
     <!-- <div class="Right">
       <h2>History</h2>
@@ -191,5 +212,6 @@
       <button class="btn btn-danger" (click)="manage()">Manage slots  <fa-icon [icon]="faRight"></fa-icon></button>
     </div> -->
   </div>
+  
   <!-- <app-login #log></app-login> -->
 </body>

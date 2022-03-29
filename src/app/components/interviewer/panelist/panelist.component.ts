@@ -13,8 +13,10 @@ import { faArrowRight, faUser } from '@fortawesome/free-solid-svg-icons';
 })
 export class PanelistComponent implements OnInit {
 
-  users:string[]; 
-  user_name = localStorage.getItem('user');
+  users:string[];
+  
+  user = JSON.parse(localStorage.getItem('user')!);
+  // user1 = JSON.parse(this.user)
   faUser = faUser;
   faEdit = faEdit;
   faRight = faArrowRight;
