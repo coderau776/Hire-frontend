@@ -4,7 +4,7 @@ import { LoginService } from 'src/app/services/login.service';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { faArrowRight, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faUser, faCalendar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-panelist',
@@ -20,6 +20,7 @@ export class PanelistComponent implements OnInit {
   faUser = faUser;
   faEdit = faEdit;
   faRight = faArrowRight;
+  faCal = faCalendar;
   log:SocialUser;
   
   constructor(private loginService:LoginService,private router:Router) {
@@ -30,6 +31,15 @@ export class PanelistComponent implements OnInit {
 
     this.log = this.loginService.getUser();
     //console.log(this.log.photoUrl);
+  }
+
+  navtopan():void{
+    
+      this.router.navigate(['/pan']);
+  
+  }
+  navtointerv():void{
+    this.router.navigate(['/interv']);
   }
 
   ngOnInit(): void {

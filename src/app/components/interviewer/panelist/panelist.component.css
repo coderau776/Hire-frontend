@@ -540,6 +540,17 @@ ul li .descr {
 }
 .usericon{
     color: white;
+    font-size: 30px;
+    position: absolute;
+    top: 35vh;
+    left: 17px;
+}
+.calicon{
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    top: 50vh;
+    left: 17px;
 }
 
 .user-profile{
