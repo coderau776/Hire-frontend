@@ -47,8 +47,9 @@ export class PanelistComponent implements OnInit {
     this.users=["10:00","12:00"];
     if(this.user == null){
       this.router.navigate(['/']);
+      swal ( "Oops" ,  "Please Login to continue" ,  "error" );
     }
-    swal ( "Oops" ,  "Please Login to continue" ,  "error" )
+    
     // alert("Please login to continue");
    
   }

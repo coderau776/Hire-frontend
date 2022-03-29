@@ -16,8 +16,9 @@ export class SlotViewComponent implements OnInit {
   ngOnInit(): void {
     if(this.user == null){
       this.router.navigate(['/']);
+      swal ( "Oops" ,  "Please Login to continue" ,  "error" );
     }
-    swal ( "Oops" ,  "Please Login to continue" ,  "error" )
+    
   }
   navtopan():void{
     
