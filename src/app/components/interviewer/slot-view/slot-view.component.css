@@ -41,7 +41,7 @@ html,body{
     top: 35vh;
     left: 17px;
     transition: all 0.5s;
-    
+    cursor: pointer;
     
 }
 .calicon{
@@ -52,4 +52,5 @@ html,body{
     left: 17px;
     transform: scale(1.4);
     transition: all 0.5s;
+    cursor: pointer;
 }

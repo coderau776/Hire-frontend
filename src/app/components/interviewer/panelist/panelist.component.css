@@ -562,6 +562,7 @@ ul li .descr {
     left: 17px;
     text-shadow: 10px 10px 10px blue;
     transform: scale(1.4);
+    cursor: pointer;
     
 }
 .calicon{
@@ -570,6 +571,7 @@ ul li .descr {
     position: absolute;
     top: 50vh;
     left: 17px;
+    cursor: pointer;
 }
 
 .user-profile{
