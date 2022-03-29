@@ -10,13 +10,14 @@ export class LoginService {
   user: SocialUser;
   post: string;
   loggedIn: boolean = false;
-  private url: string = 'http://localhost:8080/users/6';
+  private url: string = 'http://localhost:8080/users/user';
 
   constructor(private http: HttpClient) {}
 
   setUser(user: SocialUser) {
     this.user = user;
     localStorage.setItem('user', JSON.stringify(user));
+    // console.log(user.email);
 
     // this.http.post(this.url,{email:user.email,post:"Interviewer"}).subscribe((data)=>{
     //   console.log(this.getPost());
@@ -34,7 +35,10 @@ export class LoginService {
         Accept: 'application/json',
       }),
     };
-    const _user = this.http.get<User>(this.url, httpOptions);
+    const _user = this.http.get<User>(
+      `${this.url}/${this.user.email}`,
+      httpOptions
+    );
     console.log(_user);
     return _user;
   }
