@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService {
-
+  
   user:SocialUser;
   post:string;
   loggedIn:boolean=false;
@@ -16,7 +16,8 @@ export class LoginService {
 
   setUser(user:SocialUser){
     this.user = user;
-    localStorage.setItem('user',user.name);
+    localStorage.setItem('user', JSON.stringify(user));
+    
     // this.http.post(this.url,{email:user.email,post:"Interviewer"}).subscribe((data)=>{
     //   console.log(this.getPost());
     // })

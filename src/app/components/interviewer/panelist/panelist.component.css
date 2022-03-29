@@ -52,7 +52,7 @@ body {
 box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 backdrop-filter: blur( 11.5px );
 -webkit-backdrop-filter: blur( 11.5px );
-
+z-index: 1000;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .sidebarMenuInner{
@@ -102,6 +102,7 @@ input[type=checkbox] {
     right: 20px;
     height: 22px;
     width: 22px;
+    display: none;
 }
 .spinner {
     transition: all 0.3s;
@@ -223,7 +224,8 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
  .main-content{
     display: flex;
     flex-wrap: wrap;
-    margin-left: 5vw;
+    justify-content: center;
+    margin-left: 60px;
     margin-top: 20px;
     transition: all 0.3s;
  }
@@ -244,7 +246,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 padding: 15px;
 margin-top: 30px;
 margin-left: 3vw;
-width: 45vw;
+width: 700px;
 text-align: center;
 }
 
@@ -358,7 +360,7 @@ input[type="checkbox"]:checked ~ .main-content > .interview-schedule {
     position: fixed;
     background-color: #142f43;
     height: 100vh;
-    width: 4vw;
+    width: 60px;
 }
 .navigator h1{
     color:rgb(255, 121, 32);
@@ -538,4 +540,83 @@ ul li .descr {
 }
 .usericon{
     color: white;
+    font-size: 30px;
+    position: absolute;
+    top: 35vh;
+    left: 17px;
+}
+.calicon{
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    top: 50vh;
+    left: 17px;
+}
+
+.user-profile{
+    border-radius: 10px 10px 10px 10px;
+    background: #142f43;
+    color: white;
+    width: 280px;
+    margin-left: 20px;
+    margin-top: 10px;
+    text-align: center;
+}
+.user_img{
+    border-radius: 50%;
+    width: 130px;
+    margin-top: 50px;
+    
+}
+.user_name{
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 20px;
+}
+.user_email{
+    font-size: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+.position{
+    margin-top: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.skil{
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.user-skills{
+    text-align: center;
+}
+.skill-card{
+    background-color: rgb(255, 121, 32);
+    width: 180px;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 15px auto;
+}
+@media screen and (max-width: 790px){
+    .interview-schedule{
+        width: 90%;
+    }.user-profile{
+        display: none;
+    }
+    .sidebarIconToggle {
+        transition: all 0.3s;
+        box-sizing: border-box;
+        cursor: pointer;
+        position: fixed;
+        z-index: 1099;
+        height: 100%;
+        width: 100%;
+        top: 22px;
+        right: 20px;
+        height: 22px;
+        width: 22px;
+        display: block;
+    }
 }
