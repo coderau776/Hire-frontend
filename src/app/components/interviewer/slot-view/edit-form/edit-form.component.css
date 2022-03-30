@@ -18,7 +18,7 @@ input[type="radio"]{
 }
 
 .done{
-    background-color: orange;
+    background-color: #142f43;
     border: none;
     border-radius: 10px;
     position: relative;
@@ -27,10 +27,11 @@ input[type="radio"]{
     margin: 10px;
     font-size: 20px;
     width: 50%;
+    color: #fff;
 }
 
 .done:hover{
-    border: 1px solid black; 
+    
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
@@ -38,24 +39,24 @@ input[type="radio"]{
     margin: 5px;
     background-color: white;
     color: black;
-    border: 2px solid #4CAF50; 
+    border: 2px solid #ff5c23;
     border-radius: 10px;
     transition-duration: 0.4s;
 }
 
 .select:hover{
-    background-color: #4CAF50; 
+    background-color: #ff5c23;
     color: white;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .select:active{
-    background-color: #3e8e41;
+    background-color: #ff5c23;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
 .select:focus{
-    background-color: #3e8e41;
+    background-color: #ff5c23;
     box-shadow: 0 5px #666;
 }
 

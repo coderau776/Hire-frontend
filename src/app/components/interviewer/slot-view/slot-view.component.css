@@ -1,10 +1,11 @@
 
 html,body{
     /* background-color: #f0fbfc!important; */
-    background-image: url('../../../../assets/office12345.png');
+    background-image: url('../../../../assets/office123.png');
     background-size: cover;
-    padding-top: 1rem;
+    
 }
+
 /* .bada-card{
    background-image: url('../../../../assets/office12.png');
    background-size: cover;
@@ -20,3 +21,45 @@ html,body{
 .chota{
     margin: 1rem;
 } */
+
+.navigator{
+    position: fixed;
+    background-color: #142f43;
+    height: 100vh;
+    width: 60px;
+    text-align: center;
+}
+.navigator h1{
+    color:rgb(255, 121, 32);
+    font-weight: 900;
+    font-size: 50px;
+}
+.usericon{
+    color: #fff;
+    font-size: 30px;
+    position: absolute;
+    top: 35vh;
+    left: 17px;
+    transition: all 0.5s;
+    cursor: pointer;
+    
+}
+.calicon{
+    color: #ff5c23;
+    font-size: 30px;
+    position: absolute;
+    top: 50vh;
+    left: 17px;
+    transform: scale(1.4);
+
+    cursor: pointer;
+    animation-name: example;
+    animation-duration: 0.4s;
+    
+}
+@keyframes example {
+    from {color: white;
+    transform: scale(1)}
+    to {color: #ff5c23;
+    transform: scale(1.4)}
+  }
