@@ -10,9 +10,9 @@ export class LoginComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit(): void {
-    // if(this.user != null){
-    //   this.router.navigate(['/pan']);
-    // }
+    if(this.user != null){
+      this.router.navigate(['/pan']);
+    }
   }
 
 }
