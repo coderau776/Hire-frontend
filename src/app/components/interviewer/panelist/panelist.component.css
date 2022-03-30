@@ -439,6 +439,7 @@ input[type="checkbox"]:checked ~ .main-content > .interview-schedule {
 }
 .part2 h1{
     text-align: center;
+    font-weight: bold;
 }
 
 ul {
@@ -560,11 +561,19 @@ ul li .descr {
     position: absolute;
     top: 35vh;
     left: 17px;
-    text-shadow: 10px 10px 10px blue;
+    transition: all 0.5s;
     transform: scale(1.4);
     cursor: pointer;
+    animation-name: example;
+    animation-duration: 0.4s;
     
 }
+@keyframes example {
+    from {color: white;
+    transform: scale(1)}
+    to {color: #ff5c23;
+    transform: scale(1.4)}
+  }
 .calicon{
     color: white;
     font-size: 30px;

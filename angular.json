@@ -33,7 +33,7 @@
               "src/styles.css"
             ],
             "scripts": [
-             
+              
             ]
           },
           "configurations": {
@@ -100,8 +100,10 @@
             ],
             "styles": [
               "src/styles.css"
+              
             ],
             "scripts": [
+              
             ]
           }
         }

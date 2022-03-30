@@ -81,21 +81,25 @@
 <button class="btn btn-danger signout" (click)="signOut()">Sign Out</button>
   </div>
   
+<<<<<<< HEAD
   <div class="main-content">
+=======
+  <div  class="main-content">
+>>>>>>> cfadbba0b69b3f24ac0d3ca274d327d0f9d5fb29
     <div class="part1">
     <p class="greet" *ngIf="user">Good Evening {{user.firstName}} ....</p>
     <div class="incentive">
       <div class="incentive_card">
         <p class="p1">Monthly</p>
-        <p class="p2">36</p>
+        <p class="p2">{{month}}</p>
       </div>
       <div class="incentive_card">
         <p class="p1">Quaterly</p>
-        <p class="p2">36</p>
+        <p class="p2">{{quarter}}</p>
       </div>
       <div class="incentive_card">
         <p class="p1">Annually</p>
-        <p class="p2">36</p>
+        <p class="p2">{{year}}</p>
       </div>
       
       
@@ -174,7 +178,7 @@
                 <div class="icon"><i class="fa-brands fa-codepen"></i></div>
          
                 <div class="title"><img  width="100px" src="https://i.ibb.co/0f7Lq2L/incentive.png" alt="image"></div>
-                <div class="descr">576</div>
+                <div class="descr">{{incentive}}</div>
             </li>
           
         </ul>
