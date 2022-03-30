@@ -51,6 +51,15 @@ html,body{
     top: 50vh;
     left: 17px;
     transform: scale(1.4);
-    transition: all 0.5s;
+
     cursor: pointer;
+    animation-name: example;
+    animation-duration: 0.4s;
+    
 }
+@keyframes example {
+    from {color: white;
+    transform: scale(1)}
+    to {color: #ff5c23;
+    transform: scale(1.4)}
+  }
