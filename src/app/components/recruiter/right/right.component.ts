@@ -29,16 +29,16 @@ export class RightComponent implements OnInit {
       
     })
     
-    // this.service.check.subscribe((data)=>{
-    //   if(data){
-    //     this.res = this.res.filter((data)=>(data.id%29===0));
-    //   }
-    //   else{
-    //     this.res = this.oriRes;
-    //   }
-    //   this.dataSource=new MatTableDataSource(this.res)
-    //   this.dataSource.paginator=this.paginator;
-    // })
+    this.service.check.subscribe((data)=>{
+      if(data){
+        this.res = this.res.filter((data)=>(data.id%29===0));
+      }
+      else{
+        this.res = this.oriRes;
+      }
+      this.dataSource=new MatTableDataSource(this.res)
+      this.dataSource.paginator=this.paginator;
+    })
     
   }
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SocialUser } from 'angularx-social-login';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/User';
 import { Observable } from 'rxjs';
 @Injectable({
@@ -11,7 +11,16 @@ export class LoginService {
   user:SocialUser;
   post:string;
   loggedIn:boolean=false;
-  private url:string = "http://localhost:9090/emp"
+  private url:string = "http://localhost:9292/users/2"
+  headerDict = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+  }
+  
+  requestOptions = {                                                                                                                                                                                 
+    headers: new HttpHeaders(this.headerDict), 
+  };
+
   constructor(private http:HttpClient) { }
 
   setUser(user:SocialUser){
@@ -29,9 +38,8 @@ export class LoginService {
   }
 
   getPost():Observable<User>{
-    console.log(this.url+"/"+this.user.email)
 
-    return this.http.get<User>(this.url+"/"+this.user.email);
+    return this.http.get<User>(this.url);
     
   }
 

@@ -54,3 +54,6 @@ html,body{
     transition: all 0.5s;
     cursor: pointer;
 }
+.ncard{
+    padding-top: 2rem;
+}

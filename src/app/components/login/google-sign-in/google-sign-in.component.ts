@@ -25,21 +25,21 @@ export class GoogleSignInComponent implements OnInit {
 
   signIn():void{
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user)=>{
-      this.router.navigate(['/pan'])
+      //this.router.navigate(['/pan'])
       console.log("Sign done now in then")
 
-      // this.loginService.getPost().subscribe((user:User)=>{
+       this.loginService.getPost().subscribe((user:User)=>{
 
 
-      //   console.log("users post in service"+user.post)
-      //   if(user.post==="Interviewer"){
-      //     this.router.navigate(['/pan'])
-      //   }
-      //   else if(user.post==="Recruiter"){
-      //     this.router.navigate(['/recr'])
-      //   }
+        console.log("users post in service "+user.userRole)
+        if(user.userRole==="Interviewer"){
+          this.router.navigate(['/pan'])
+        }
+        else if(user.userRole==="Recruiter"){
+          this.router.navigate(['/recr'])
+        }
         
-      // })
+      })
     
         
     });

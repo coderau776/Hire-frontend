@@ -1,4 +1,6 @@
 export interface User{
-    email:string;
-    post:string;
+    userID:number;
+    userEmailID:string;
+    userRole:string;
+    isUserActive:boolean;
 }

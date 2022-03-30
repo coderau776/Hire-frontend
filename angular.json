@@ -30,11 +30,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "./node_modules/aos/dist/aos.css"
+              "src/styles.css"
+              
             ],
             "scripts": [
-              "./node_modules/aos/dist/aos.js"
+              
             ]
           },
           "configurations": {
@@ -100,11 +100,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/aos/dist/aos.css"
+              "src/styles.css"
+              
             ],
             "scripts": [
-              "node_modules/aos/dist/aos.js"
+            
             ]
           }
         }
