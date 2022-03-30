@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup,FormControl } from '@angular/forms';
 import { CalendarServiceService } from 'src/app/services/calendar-service.service'; 
+import { NgForm } from '@angular/forms';
 
 
 @Component({
