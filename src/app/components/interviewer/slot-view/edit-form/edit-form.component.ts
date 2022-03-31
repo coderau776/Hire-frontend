@@ -68,13 +68,18 @@ export class EditFormComponent implements OnInit {
     {
       if(val.weekly){
            this.slotvService.provideRecurDaySlot(val.startTime,val.endTime,new Date(val.startDate),new Date(val.endDate),val.day).subscribe((res)=>{
-         console.log(res);
+         this.slotvService.getSlots().subscribe((slots)=>{
+           this.slotvService.setSlots(slots);
+         });
        })
       }
       else{
       
       this.slotvService.provideRecurSlot(val.startTime,val.endTime,new Date(val.startDate),new Date(val.endDate)).subscribe((res)=>{
         console.log("recur day "+res);
+        this.slotvService.getSlots().subscribe((slots)=>{
+          this.slotvService.setSlots(slots);
+        });
       })
       }
       
