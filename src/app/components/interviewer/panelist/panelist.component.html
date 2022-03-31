@@ -106,7 +106,7 @@
 
         <p *ngIf="today.length==0" style="color: white;">No Interviews for today</p>
         <div class="Mid_Schedule" *ngFor="let day of today">
-          <p>{{day.startTime}} - {{day.endTime}}</p>
+          <p style="padding: 0.5rem;font-size: 1.3rem;">Meeting today at {{day.startTime}} - {{day.endTime}}</p>
         </div>
         
       </div>

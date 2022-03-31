@@ -34,13 +34,23 @@ export class ScheduleComponent implements OnInit {
     this.calendarService.initialize(); 
     this.selecteddate=this.calendarService.currentMonth;
 
-    this.slots = this.slotvService.slots;
-
+    this.slotvService.getSlots().subscribe((slots)=>{
+      this.slotvService.setSlots(slots);
+      this.slots = this.slotvService.slots;
+      console.log(slots)
+    })
+    
     this.calendarService.dateEvent.subscribe((date: Date)=>{
       this.selecteddate=date;
     })
+
+    
+
   }
- 
+  gd(date:string):Date{
+    //console.log(date);
+      return new Date(date);
+  }
  
 
 

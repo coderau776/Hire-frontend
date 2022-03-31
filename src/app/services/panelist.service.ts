@@ -30,4 +30,7 @@ export class PanelistService {
     this.interviewer = person;
   }
 
+  getFormattedDate(date:Date){
+    return (date.getMonth()<=9?"0"+(date.getMonth()+1):(date.getMonth()+1))+"-"+(date.getDate()<=9?"0"+date.getDate():date.getDate())+"-"+date.getFullYear();
+  }
 }
