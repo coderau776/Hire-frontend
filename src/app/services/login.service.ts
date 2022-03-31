@@ -11,7 +11,7 @@ export class LoginService {
   user:SocialUser;
   post:string;
   loggedIn:boolean=false;
-  private url:string = "http://localhost:9292/users/2"
+  private url:string = "http://test-env.eba-p9gye2ye.us-east-1.elasticbeanstalk.com/users/"
   
 
   constructor(private http:HttpClient) { }
@@ -33,7 +33,8 @@ export class LoginService {
 
   getPost():Observable<User>{
 
-    return this.http.get<User>(this.url);
+    return this.http.get<User>(this.url+"user"+"/"+this.user.email);
+    //return this.http.get<User>(this.url+"1");
     
   }
 }

@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup,FormControl } from '@angular/forms';
 import { CalendarServiceService } from 'src/app/services/calendar-service.service'; 
 import { NgForm } from '@angular/forms';
+import { SlotViewService } from 'src/app/services/slot-view.service';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class EditFormComponent implements OnInit {
   et:ElementRef;
 
 
-  constructor(private calendarService:CalendarServiceService) { }
+  constructor(private calendarService:CalendarServiceService,private slotvService:SlotViewService) { }
 
   ngOnInit(): void {
     this.Date1=this.calendarService.currentMonth;
@@ -62,6 +63,28 @@ export class EditFormComponent implements OnInit {
     this.st.nativeElement.value="";
     this.et.nativeElement.value="";
     console.log(val);
+    console.log(this.slotvService.getNearestDates(new Date(val.startDate),val.day));
+    if(val.recurring)
+    {
+      if(val.weekly){
+           this.slotvService.provideRecurDaySlot(val.startTime,val.endTime,new Date(val.startDate),new Date(val.endDate),val.day).subscribe((res)=>{
+         console.log(res);
+       })
+      }
+      else{
+      
+      this.slotvService.provideRecurSlot(val.startTime,val.endTime,new Date(val.startDate),new Date(val.endDate)).subscribe((res)=>{
+        console.log("recur day "+res);
+      })
+      }
+      
+    }
+    else{
+      console.log("inside else")
+      this.slotvService.provideInstantSlot(val.startTime,val.endTime,this.Date1).subscribe((res)=>{
+        console.log(res);
+      });
+    }
     this.flag1=false;
   }
 
