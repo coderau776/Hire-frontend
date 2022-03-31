@@ -5,6 +5,10 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpClient } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 
+const todayDate:Date = new Date; 
+
+let disabledDated: CalendarServiceService;
+
 describe('CalendarServiceService', () => {
   let service: CalendarServiceService;
   let http: HttpClient;
@@ -23,4 +27,11 @@ describe('CalendarServiceService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should check whether the dates are blocked after 14 days', () => {
+    expect(todayDate.toLocaleDateString()).toBe('3/31/2022');
+    // let blockedDate = disabledDated.getDaysInCurrentMonth(todayDate);
+    // expect(blockedDate).toContain(todayDate.toLocaleDateString());
+  });
+
 });
