@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable,EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Slot } from '../models/Slot';
 
 
 @Injectable({
@@ -9,10 +10,10 @@ import { Observable } from 'rxjs';
 export class RecruiterService {
 
   check:EventEmitter<boolean> = new EventEmitter();
-  url:string ='https://jsonplaceholder.typicode.com/todos' 
+  private url_slot:string = "http://test-env.eba-p9gye2ye.us-east-1.elasticbeanstalk.com/slots/" 
   constructor(private http:HttpClient) { }
-  getData():Observable<any>{
-    return this.http.get(this.url);
+  getData():Observable<Slot[]>{
+    return this.http.get<Slot[]>(this.url_slot);
   }
  
 }

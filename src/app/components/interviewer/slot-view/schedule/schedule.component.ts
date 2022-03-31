@@ -1,6 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
+import { Slot } from 'src/app/models/Slot';
 import { CalendarServiceService } from 'src/app/services/calendar-service.service';
+import { SlotViewService } from 'src/app/services/slot-view.service';
 
 
 @Component({
@@ -22,13 +24,17 @@ export class ScheduleComponent implements OnInit {
   {"id":9,"Date":new Date(2022,3,29),"Time":"11:00 AM",task:"Nodejs interview"},
   {"id":10,"Date":new Date(2022,3,30),"Time":"9:00 AM",task:"Hibernate interview"}]
 
-  constructor(private calendarService:CalendarServiceService){
+  slots:Slot[];
+
+  constructor(private calendarService:CalendarServiceService,private slotvService:SlotViewService){
 
   }
   
   ngOnInit(): void {   
     this.calendarService.initialize(); 
     this.selecteddate=this.calendarService.currentMonth;
+
+    this.slots = this.slotvService.slots;
 
     this.calendarService.dateEvent.subscribe((date: Date)=>{
       this.selecteddate=date;

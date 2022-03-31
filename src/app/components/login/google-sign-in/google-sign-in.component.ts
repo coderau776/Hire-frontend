@@ -25,13 +25,16 @@ export class GoogleSignInComponent implements OnInit {
 
   signIn():void{
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user)=>{
+      //localStorage.setItem('id',1+"");
       //this.router.navigate(['/pan'])
       console.log("Sign done now in then")
 
        this.loginService.getPost().subscribe((user:User)=>{
 
-
         console.log("users post in service "+user.userRole)
+        localStorage.setItem('id',user.userID+"");
+       
+        
         if(user.userRole==="Interviewer"){
           this.router.navigate(['/pan'])
         }

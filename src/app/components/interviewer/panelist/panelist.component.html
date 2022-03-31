@@ -103,66 +103,12 @@
     <div class="interview-schedule">
       <h2>Upcoming Inteviews</h2>
       <div class="scroll-control">
-        <div class="Mid_Schedule" >
-          <h5>Team Meeting - Query Session</h5>
-          
-          <p>Hi this is item</p>
-         
+
+        <p *ngIf="today.length==0" style="color: white;">No Interviews for today</p>
+        <div class="Mid_Schedule" *ngFor="let day of today">
+          <p>{{day.startTime}} - {{day.endTime}}</p>
         </div>
-        <div class="Mid_Schedule" >
-          <h5>Team Meeting - Query Session</h5>
         
-          <p>Hi this is item</p>
-          
-        </div>
-        <div class="Mid_Schedule" >
-          <h5>Team Meeting - Query Session</h5>
-        
-          <p>Hi this is item</p>
-          
-        </div>
-        <div class="Mid_Schedule" >
-          <h5>Team Meeting - Query Session</h5>
-         
-          <p>Hi this is item</p>
-        
-        </div>
-        <div class="Mid_Schedule" >
-          <h5>Team Meeting - Query Session</h5>
-         
-          <p>Hi this is item</p>
-         
-        </div>
-        <div class="Mid_Schedule" >
-          <h5>Team Meeting - Query Session</h5>
-         
-          <p>Hi this is item</p>
-          
-        </div>
-        <div class="Mid_Schedule" >
-          <h5>Team Meeting - Query Session</h5>
-          
-          <p>Hi this is item</p>
-    
-        </div>
-        <div class="Mid_Schedule" >
-          <h5>Team Meeting - Query Session</h5>
-         
-          <p>Hi this is item</p>
-        
-        </div>
-        <div class="Mid_Schedule" >
-          <h5>Team Meeting - Query Session</h5>
-          
-          <p>Hi this is item</p>
-          
-        </div>
-        <div class="Mid_Schedule" >
-          <h5>Team Meeting - Query Session</h5>
-          
-          <p>Hi this is item</p>
-          
-        </div>
       </div>
     </div>
     </div>
@@ -183,21 +129,21 @@
         <img class="user_img" *ngIf="user" src="{{ user.photoUrl }}" >
         <p class="user_name" *ngIf="user">{{ user.name }}</p>
         <p class="user_email" *ngIf="user">{{ user.email }}</p>
-        <p class="position"> SDE 2</p>
+        <p class="position"> Round Paneled: {{round}}</p>
         <hr>
         <p class="skil">Skills</p>
         <div class="user_skills">
           <div class="skill-card">
-            <p>Primary</p>
+            <p>{{person.primary_Skill}}</p>
           </div>
           <div class="skill-card">
-            <p>Secondary</p>
+            <p>{{person.secondary_Skill}}</p>
           </div>
           <div class="skill-card">
-            <p>Tertiary</p>
+            <p>{{person.tertiary_Skill}}</p>
           </div>
         </div>
-        <button class="btn btn-danger signout" (click)="signOut()">Sign Out</button>
+        <button class="btn btn-danger mb-2 signout" (click)="signOut()">Sign Out</button>
       </div>
     
     <!-- <div class="Right">

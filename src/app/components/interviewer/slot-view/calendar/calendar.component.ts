@@ -18,7 +18,6 @@ export class CalendarComponent implements OnInit {
   faRight = faArrowRight;
   faLeft = faArrowLeft;
   target:any;
-  inp:string="abciosg";
 
 
   @ViewChildren('d')

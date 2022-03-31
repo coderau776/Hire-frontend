@@ -6,6 +6,9 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { faArrowRight, faUser, faCalendar } from '@fortawesome/free-solid-svg-icons';
 import swal from 'SweetAlert';
+import { Slot } from 'src/app/models/Slot';
+import { Interviewer } from 'src/app/models/Interviewer';
+import { PanelistService } from 'src/app/services/panelist.service';
 
 
 @Component({
@@ -20,6 +23,7 @@ export class PanelistComponent implements OnInit {
   quarter:number = 0;
   year:number = 0;
   incentive:number = 0;
+  today:Slot[];
   user = JSON.parse(localStorage.getItem('user')!);
   // user1 = JSON.parse(this.user)
   faUser = faUser;
@@ -27,8 +31,10 @@ export class PanelistComponent implements OnInit {
   faRight = faArrowRight;
   faCal = faCalendar;
   log:SocialUser;
-  
-  constructor(private loginService:LoginService,private router:Router) {
+  person:Interviewer;
+  round:string="2";
+
+  constructor(private loginService:LoginService,private router:Router,private panelistService:PanelistService) {
     // userData.users().subscribe((data) => {
     //   console.warn("data", data);
     //   this.users = data;
@@ -87,6 +93,12 @@ export class PanelistComponent implements OnInit {
     this.router.navigate(['/interv']);
   }
 
+  getId():number{
+    console.log("iddd "+localStorage.getItem('id'))
+    return Number(localStorage.getItem('id'));
+
+  }
+
   ngOnInit(): void {
     this.users=["10:00","12:00"];
     if(this.user == null){
@@ -94,7 +106,23 @@ export class PanelistComponent implements OnInit {
       swal ( "Oops" ,  "Please Login to continue" ,  "error" );
     }
     
-    // alert("Please login to continue");
+    this.panelistService.getDetails(this.getId()).subscribe((person)=>{
+      console.log(person)
+      this.round = person.round_Alloted;
+      this.person=person;
+      this.panelistService.setInterviewer(person);
+    },(error)=>{
+      console.log("error - "+error)
+    },()=>{
+      this.panelistService.getTodaysSchedule(this.person.userId).subscribe((data)=>{
+        let currDate = new Date().toLocaleDateString('en-GB');
+
+        this.today = data.filter((slot)=>(slot.date===currDate));
+        
+      })
+    })
+    
+    
    
   }
   signOut(){

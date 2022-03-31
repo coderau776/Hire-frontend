@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup,FormControl } from '@angular/forms';
 import { CalendarServiceService } from 'src/app/services/calendar-service.service'; 
 import { NgForm } from '@angular/forms';
+import { SlotViewService } from 'src/app/services/slot-view.service';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class EditFormComponent implements OnInit {
   et:ElementRef;
 
 
-  constructor(private calendarService:CalendarServiceService) { }
+  constructor(private calendarService:CalendarServiceService,private slotvService:SlotViewService) { }
 
   ngOnInit(): void {
     this.Date1=this.calendarService.currentMonth;
@@ -61,7 +62,19 @@ export class EditFormComponent implements OnInit {
     this.calendarService.doneEvent.emit(this.Date1.getDay());
     this.st.nativeElement.value="";
     this.et.nativeElement.value="";
-    console.log(val);
+    console.log(val,this.Date1.toDateString());
+    if(val.recurring)
+    {
+      if(val.weekly){
+
+      }
+      else{
+
+      }
+    }
+    else{
+      //this.slotvService.createSlot(val.startTime,val.endTime,this.Date1.toDateString());
+    }
     this.flag1=false;
   }
 

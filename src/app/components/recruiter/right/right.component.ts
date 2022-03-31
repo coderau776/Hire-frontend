@@ -10,7 +10,7 @@ import { RecruiterService } from 'src/app/services/recruiter.service';
 })
 export class RightComponent implements OnInit {
 
-  displayedColumns =['id','title'];
+  displayedColumns =['id','title','emailid','round-alloted','primary-skill','secondary-skill','tertiary-skill'];
   dataSource! : MatTableDataSource<any>;
   res!:any[];
   oriRes!:any[];
