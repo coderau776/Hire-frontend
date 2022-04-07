@@ -63,7 +63,7 @@ export class EditFormComponent implements OnInit {
     this.st.nativeElement.value="";
     this.et.nativeElement.value="";
     console.log(val);
-    console.log(this.slotvService.getNearestDates(new Date(val.startDate),val.day));
+    // console.log(this.slotvService.getNearestDates(new Date(val.startDate),val.day));
     if(val.recurring)
     {
       if(val.weekly){
@@ -72,6 +72,7 @@ export class EditFormComponent implements OnInit {
            this.slotvService.setSlots(slots);
          });
        })
+      console.log('in weekly');
       }
       else{
       
@@ -81,6 +82,7 @@ export class EditFormComponent implements OnInit {
           this.slotvService.setSlots(slots);
         });
       })
+      console.log('in recur')
       }
       
     }
