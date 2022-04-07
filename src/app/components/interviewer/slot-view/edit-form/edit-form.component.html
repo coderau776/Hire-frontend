@@ -32,10 +32,10 @@
         <div class="recurring" *ngIf="flag1">
             
             <label for="sDate">Start Date :</label>
-            <input class="form-control" type="date" ngModel id="sDate" name="start date">
+            <input class="form-control" type="date" ngModel id="sDate" name="startDate">
 
             <label for="eDate">End Date :</label>
-            <input class="form-control" type="date" ngModel id="eDate" name="end date">
+            <input class="form-control" type="date" ngModel id="eDate" name="endDate">
 
 
             <button (click)="daily()" class="select" type="button">Daily</button>
@@ -58,7 +58,7 @@
             <input class="form-check-input" type="radio" ngModel id="tue" name="day" value="Tuesday">
             <label class="form-check-label" for="tue">Tuesday</label>
             <br>
-            <input class="form-check-input" type="radio" id="wed" name="day" value="Wednesday">
+            <input class="form-check-input" type="radio" ngModel id="wed" name="day" value="Wednesday">
             <label class="form-check-label" for="wed">Wednesday</label>
             <br>
             <input class="form-check-input" type="radio" ngModel id="thu" name="day" value="Thursday">
