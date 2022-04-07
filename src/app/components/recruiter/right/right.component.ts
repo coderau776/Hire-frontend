@@ -270,6 +270,7 @@ export class RightComponent implements OnInit, OnChanges {
 
     if (changes['dates'] !== undefined) {
       this.onDateChange(changes['dates']);
+      this.onDateChange(changes['dates']);
     }
   }
 
