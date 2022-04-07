@@ -20,10 +20,7 @@ export class SlotViewComponent implements OnInit {
       swal( "Oops" , "Please Login to continue" ,  "error" );
     }
 
-    this.slotvService.getSlots().subscribe((slots)=>{
-      this.slotvService.setSlots(slots);
-      console.log(slots)
-    })
+    
   }
   navtopan():void{
     

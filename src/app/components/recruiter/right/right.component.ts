@@ -167,7 +167,6 @@ export class RightComponent implements OnInit, OnChanges {
 
   displayedColumns: string[] = [
     'slotId',
-    'title',
     'emailId',
     'roundAlloted',
     'primarySkill',
