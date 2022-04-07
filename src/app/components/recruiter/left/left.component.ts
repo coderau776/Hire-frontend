@@ -67,7 +67,13 @@ export class LeftComponent implements OnInit {
   }
 
   onDateChange() {
-    this.dateEmitter.emit(this.range.value);
+    let val = {
+      start: new Date(this.range.value.start),
+      end: new Date(this.range.value.end),
+    };
+    console.log(val);
+
+    this.dateEmitter.emit(val);
   }
 
   clearDateField() {
