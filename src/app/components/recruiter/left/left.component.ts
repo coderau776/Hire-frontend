@@ -66,12 +66,21 @@ export class LeftComponent implements OnInit {
     this.skillEmitter.emit(this.skills.value);
   }
 
-  onDateChange() {
-    this.dateEmitter.emit(this.range.value);
+  onDateChange(isReset: boolean) {
+    let val;
+    isReset
+      ? (val = { start: null, end: null })
+      : (val = {
+          start: new Date(this.range.value.start),
+          end: new Date(this.range.value.end),
+        });
+
+    this.dateEmitter.emit(val);
   }
 
   clearDateField() {
-    this.range.reset();
-    this.onDateChange();
+    this.range.reset;
+    console.log(this.range.value);
+    this.onDateChange(true);
   }
 }
