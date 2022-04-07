@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-recruiter',
@@ -11,9 +10,7 @@ export class RecruiterComponent implements OnInit {
   skills;
   dateRange;
 
-  constructor(private loginService: LoginService) {
-    console.log(this.loginService.getUser());
-  }
+  constructor() {}
 
   ngOnInit(): void {}
 
