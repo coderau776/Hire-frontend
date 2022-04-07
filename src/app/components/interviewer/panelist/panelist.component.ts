@@ -20,12 +20,17 @@ import { PanelistService } from 'src/app/services/panelist.service';
   styleUrls: ['./panelist.component.css'],
 })
 export class PanelistComponent implements OnInit {
-  users: string[];
-  month: number = 0;
-  quarter: number = 0;
-  year: number = 0;
-  incentive: number = 0;
-  today: Slot[] = [];
+
+
+  users:string[];
+  month:number = 0;
+  quarter:number = 0;
+  year:number = 0;
+  incentive:number = 0;
+  today:Slot[]=[];
+  
+  
+  
   user = JSON.parse(localStorage.getItem('user')!);
   // user1 = JSON.parse(this.user)
   faUser = faUser;
@@ -109,27 +114,27 @@ export class PanelistComponent implements OnInit {
       this.router.navigate(['/']);
       swal('Oops', 'Please Login to continue', 'error');
     }
-
-    this.panelistService.getDetails(this.getId()).subscribe({
-      next: (person) => {
-        console.log(person);
-        this.round = person.round_Alloted;
-        this.person = person;
-        this.panelistService.setInterviewer(person);
-      },
-      error: (error) => {
-        console.log('error - ' + error);
-      },
-      complete: () => {
-        this.panelistService
-          .getTodaysSchedule(this.person.userId)
-          .subscribe((data) => {
-            let currDate = new Date().toLocaleDateString('en-GB');
-
-            this.today = data.filter((slot) => slot.date === currDate);
-          });
-      },
-    });
+ 
+    this.panelistService.getDetails(this.getId()).subscribe((person)=>{
+      console.log(person)
+      this.round = person.round_Alloted;
+      this.person=person;
+      this.panelistService.setInterviewer(person);
+    },(error)=>{
+      console.log("error - "+error)
+    },()=>{
+      this.panelistService.getTodaysSchedule(this.person.userId).subscribe((data)=>{
+        let currDate = new Date();
+        // console.log(data.filter((slot)=>(slot.slotId===65)));
+        // console.log(data.filter((slot)=>(slot.date===currDate.getMonth()+""+currDate.getDate()+currDate.getFullYear())))
+        // console.log(currDate.getMonth()+""+currDate.getDate()+currDate.getFullYear())
+        this.today = data.filter((slot)=>(slot.date===this.panelistService.getFormattedDate(new Date())));
+        
+      })
+    })
+    
+    
+ 
   }
   signOut() {
     this.router.navigate(['/']);

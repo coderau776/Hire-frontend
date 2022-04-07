@@ -62,18 +62,28 @@ export class EditFormComponent implements OnInit {
     this.calendarService.doneEvent.emit(this.Date1.getDay());
     this.st.nativeElement.value="";
     this.et.nativeElement.value="";
-    console.log(val,this.Date1.toDateString());
+    console.log(val);
+    console.log(this.slotvService.getNearestDates(new Date(val.startDate),val.day));
     if(val.recurring)
     {
       if(val.weekly){
-
+           this.slotvService.provideRecurDaySlot(val.startTime,val.endTime,new Date(val.startDate),new Date(val.endDate),val.day).subscribe((res)=>{
+         console.log(res);
+       })
       }
       else{
-
+      
+      this.slotvService.provideRecurSlot(val.startTime,val.endTime,new Date(val.startDate),new Date(val.endDate)).subscribe((res)=>{
+        console.log("recur day "+res);
+      })
       }
+      
     }
     else{
-      //this.slotvService.createSlot(val.startTime,val.endTime,this.Date1.toDateString());
+      console.log("inside else")
+      this.slotvService.provideInstantSlot(val.startTime,val.endTime,this.Date1).subscribe((res)=>{
+        console.log(res);
+      });
     }
     this.flag1=false;
   }
