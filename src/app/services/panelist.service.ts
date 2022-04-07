@@ -5,32 +5,34 @@ import { Interviewer } from '../models/Interviewer';
 import { Slot } from '../models/Slot';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PanelistService {
+  private url_inter: string =
+    'http://test-env.eba-p9gye2ye.us-east-1.elasticbeanstalk.com/interviewer/';
+  private url_slot: string =
+    'http://test-env.eba-p9gye2ye.us-east-1.elasticbeanstalk.com/slots/';
+  interviewer: Interviewer;
 
-  private url_inter:string = "http://test-env.eba-p9gye2ye.us-east-1.elasticbeanstalk.com/interviewer/"
-  private url_slot:string = "http://test-env.eba-p9gye2ye.us-east-1.elasticbeanstalk.com/slots/"
-  interviewer:Interviewer;
+  constructor(private http: HttpClient) {}
 
-  constructor(private http:HttpClient) { }
-
-  getDetails(id:number):Observable<Interviewer>{
-    console.log("get details")
-     return this.http.get<Interviewer>(this.url_inter+id);
+  getDetails(id: number): Observable<Interviewer> {
+    console.log('get details');
+    return this.http.get<Interviewer>(this.url_inter + id);
   }
 
-  getTodaysSchedule(id:number):Observable<Slot[]>{
-    console.log("get today sch")
-    return this.http.get<Slot[]>(this.url_slot+id);
-    
+  getTodaysSchedule(id: number): Observable<Slot[]> {
+    console.log('get today sch');
+    return this.http.get<Slot[]>(this.url_slot + id);
   }
 
-  setInterviewer(person:Interviewer){
+  setInterviewer(person: Interviewer) {
     this.interviewer = person;
   }
+
 
   getFormattedDate(date:Date){
     return (date.getMonth()<=9?"0"+(date.getMonth()+1):(date.getMonth()+1))+"-"+(date.getDate()<=9?"0"+date.getDate():date.getDate())+"-"+date.getFullYear();
   }
+
 }

@@ -1,8 +1,8 @@
-export class Slot{
-    date:string
-    endTime:string
-    slotId:number
-    startTime:string
-    status:string
-    userId:number
+export class Slot {
+  slotId: number;
+  userId: number;
+  status: string;
+  date: string;
+  endTime: string;
+  startTime: string;
 }
