@@ -4,37 +4,52 @@ import { LoginService } from 'src/app/services/login.service';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { faArrowRight, faUser, faCalendar } from '@fortawesome/free-solid-svg-icons';
+import {
+  faArrowRight,
+  faUser,
+  faCalendar,
+} from '@fortawesome/free-solid-svg-icons';
 import swal from 'SweetAlert';
 import { Slot } from 'src/app/models/Slot';
 import { Interviewer } from 'src/app/models/Interviewer';
 import { PanelistService } from 'src/app/services/panelist.service';
 
-
 @Component({
   selector: 'app-panelist',
   templateUrl: './panelist.component.html',
-  styleUrls: ['./panelist.component.css']
+  styleUrls: ['./panelist.component.css'],
 })
 export class PanelistComponent implements OnInit {
-
-  users:string[];
-  month:number = 0;
-  quarter:number = 0;
-  year:number = 0;
-  incentive:number = 0;
-  today:Slot[];
+  users: string[];
+  month: number = 0;
+  quarter: number = 0;
+  year: number = 0;
+  incentive: number = 0;
+  today: Slot[] = [];
   user = JSON.parse(localStorage.getItem('user')!);
   // user1 = JSON.parse(this.user)
   faUser = faUser;
   faEdit = faEdit;
   faRight = faArrowRight;
   faCal = faCalendar;
-  log:SocialUser;
-  person:Interviewer;
-  round:string="2";
+  log: SocialUser;
+  person: Interviewer = {
+    emailid: '',
+    primary_Skill: '',
+    profile_Image: '',
+    round_Alloted: '',
+    secondary_Skill: '',
+    tertiary_Skill: '',
+    userId: 0,
+    username: '',
+  };
+  round: string = '2';
 
-  constructor(private loginService:LoginService,private router:Router,private panelistService:PanelistService) {
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+    private panelistService: PanelistService
+  ) {
     // userData.users().subscribe((data) => {
     //   console.warn("data", data);
     //   this.users = data;
@@ -43,93 +58,84 @@ export class PanelistComponent implements OnInit {
     this.log = this.loginService.getUser();
     //console.log(this.log.photoUrl);
   }
-  monthstop:any = setInterval(()=>{
+  monthstop: any = setInterval(() => {
     this.month++;
     //we need to stop this at  particular point; will use if condition
-    if(this.month ==37)
-    {
+    if (this.month == 37) {
       //clearinterval will stop tha function
       clearInterval(this.monthstop);
     }
-
-  },50);
-  quarterstop:any = setInterval(()=>{
+  }, 50);
+  quarterstop: any = setInterval(() => {
     this.quarter++;
     //we need to stop this at  particular point; will use if condition
-    if(this.quarter ==68)
-    {
+    if (this.quarter == 68) {
       //clearinterval will stop tha function
       clearInterval(this.quarterstop);
     }
-
-  },30);
-  yearstop:any = setInterval(()=>{
+  }, 30);
+  yearstop: any = setInterval(() => {
     this.year++;
     //we need to stop this at  particular point; will use if condition
-    if(this.year ==124)
-    {
+    if (this.year == 124) {
       //clearinterval will stop tha function
       clearInterval(this.yearstop);
     }
-
-  },15)
-  incentivestop:any = setInterval(()=>{
+  }, 15);
+  incentivestop: any = setInterval(() => {
     this.incentive++;
     //we need to stop this at  particular point; will use if condition
-    if(this.incentive == 576)
-    {
+    if (this.incentive == 576) {
       //clearinterval will stop tha function
       clearInterval(this.incentivestop);
     }
+  }, 5);
 
-  },5)
-
-  navtopan():void{
-    
-      this.router.navigate(['/pan']);
-  
+  navtopan(): void {
+    this.router.navigate(['/pan']);
   }
-  navtointerv():void{
+  navtointerv(): void {
     this.router.navigate(['/interv']);
   }
 
-  getId():number{
-    console.log("iddd "+localStorage.getItem('id'))
+  getId(): number {
+    console.log('iddd ' + localStorage.getItem('id'));
     return Number(localStorage.getItem('id'));
-
   }
 
   ngOnInit(): void {
-    this.users=["10:00","12:00"];
-    if(this.user == null){
+    this.users = ['10:00', '12:00'];
+    if (this.user == null) {
       this.router.navigate(['/']);
-      swal ( "Oops" ,  "Please Login to continue" ,  "error" );
+      swal('Oops', 'Please Login to continue', 'error');
     }
-    
-    this.panelistService.getDetails(this.getId()).subscribe((person)=>{
-      console.log(person)
-      this.round = person.round_Alloted;
-      this.person=person;
-      this.panelistService.setInterviewer(person);
-    },(error)=>{
-      console.log("error - "+error)
-    },()=>{
-      this.panelistService.getTodaysSchedule(this.person.userId).subscribe((data)=>{
-        let currDate = new Date().toLocaleDateString('en-GB');
 
-        this.today = data.filter((slot)=>(slot.date===currDate));
-        
-      })
-    })
-    
-    
-   
+    this.panelistService.getDetails(this.getId()).subscribe({
+      next: (person) => {
+        console.log(person);
+        this.round = person.round_Alloted;
+        this.person = person;
+        this.panelistService.setInterviewer(person);
+      },
+      error: (error) => {
+        console.log('error - ' + error);
+      },
+      complete: () => {
+        this.panelistService
+          .getTodaysSchedule(this.person.userId)
+          .subscribe((data) => {
+            let currDate = new Date().toLocaleDateString('en-GB');
+
+            this.today = data.filter((slot) => slot.date === currDate);
+          });
+      },
+    });
   }
-  signOut(){
+  signOut() {
     this.router.navigate(['/']);
     localStorage.removeItem('user');
   }
-  manage(){
+  manage() {
     this.router.navigate(['/interv']);
   }
 }

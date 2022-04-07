@@ -1,10 +1,15 @@
 <head>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-<!--Get your own code at fontawesome.com-->
-
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
+    rel="stylesheet"
+  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script
+    src="https://kit.fontawesome.com/a076d05399.js"
+    crossorigin="anonymous"
+  ></script>
+  <!--Get your own code at fontawesome.com-->
 </head>
 <body>
   <div class="navigator">
@@ -12,13 +17,16 @@
     <!-- <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-person" viewBox="0 0 16 16">
       <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
     </svg> -->
-  
-    <a  title="User-Panel"><fa-icon class="usericon" [icon]="faUser" (click)="navtopan()"></fa-icon></a>
-    <a  title="View Slots"> <fa-icon class="calicon" [icon]="faCal" (click)="navtointerv()"></fa-icon></a>
-  
+
+    <a title="User-Panel"
+      ><fa-icon class="usericon" [icon]="faUser" (click)="navtopan()"></fa-icon
+    ></a>
+    <a title="View Slots">
+      <fa-icon class="calicon" [icon]="faCal" (click)="navtointerv()"></fa-icon
+    ></a>
   </div>
-  
-  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+
+  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu" />
   <label for="openSidebarMenu" class="sidebarIconToggle">
     <div class="spinner diagonal part-1"></div>
     <div class="spinner horizontal"></div>
@@ -26,126 +34,129 @@
   </label>
 
   <div id="sidebarMenu">
-    <div class="Card" >
-    <h1>HIRE</h1>
-    <img class="card_img" *ngIf="user" src="{{ user.photoUrl }}" >
-  </div>
-  <div class="card-block">
-    <h4 class="card-email" *ngIf="user">{{ user.email }}</h4>
-    <h4 class="card-title" *ngIf="user">{{ user.name }}</h4>
-    <h4 class="card-title">SDE-1</h4>
-    
-    
-  </div>
-  <hr/>
-  
-  <div class="skills">
-    <h2>Skills</h2>
-    <br />
-    <div class="skill">
-    <div class="addskill">
-      <p>Angular</p>
-      <!-- <img
+    <div class="Card">
+      <h1>HIRE</h1>
+      <img class="card_img" *ngIf="user" src="{{ user.photoUrl }}" />
+    </div>
+    <div class="card-block">
+      <h4 class="card-email" *ngIf="user">{{ user.email }}</h4>
+      <h4 class="card-title" *ngIf="user">{{ user.name }}</h4>
+      <h4 class="card-title">SDE-1</h4>
+    </div>
+    <hr />
+
+    <div class="skills">
+      <h2>Skills</h2>
+      <br />
+      <div class="skill">
+        <div class="addskill">
+          <p>Angular</p>
+          <!-- <img
         src="../../assets/383147_edit_icon.png"
         alt=""
         width="30"
         height="25"
       /> -->
 
-      <!-- <fa-icon [icon]="faEdit"></fa-icon> -->
-    </div>
-    <br />
-    <div class="addskill">
-      <p>Angular</p>
-      <!-- <img
+          <!-- <fa-icon [icon]="faEdit"></fa-icon> -->
+        </div>
+        <br />
+        <div class="addskill">
+          <p>Angular</p>
+          <!-- <img
         src="../../assets/383147_edit_icon.png"
         alt=""
         width="30"
         height="25"
       /> -->
-      <!-- <fa-icon [icon]="faEdit"></fa-icon> -->
-    </div>
-    <br />
-    <div class="addskill">
-      <p>Angular</p>
-      <!-- <img
+          <!-- <fa-icon [icon]="faEdit"></fa-icon> -->
+        </div>
+        <br />
+        <div class="addskill">
+          <p>Angular</p>
+          <!-- <img
         src="../../assets/383147_edit_icon.png"
         alt=""
         width="30"
         height="25"
       /> -->
-      <!-- <fa-icon [icon]="faEdit"></fa-icon> -->
+          <!-- <fa-icon [icon]="faEdit"></fa-icon> -->
+        </div>
+      </div>
     </div>
+    <button class="btn btn-danger signout" (click)="signOut()">Sign Out</button>
   </div>
-</div>
-<button class="btn btn-danger signout" (click)="signOut()">Sign Out</button>
-  </div>
-  
-  <div  class="main-content">
+
+  <div class="main-content">
     <div class="part1">
-    <p class="greet" *ngIf="user">Good Evening {{user.firstName}} ....</p>
-    <div class="incentive">
-      <div class="incentive_card">
-        <p class="p1">Monthly</p>
-        <p class="p2">{{month}}</p>
+      <p class="greet" *ngIf="user">Good Evening {{ user.firstName }} ....</p>
+      <div class="incentive">
+        <div class="incentive_card">
+          <p class="p1">Monthly</p>
+          <p class="p2">{{ month }}</p>
+        </div>
+        <div class="incentive_card">
+          <p class="p1">Quaterly</p>
+          <p class="p2">{{ quarter }}</p>
+        </div>
+        <div class="incentive_card">
+          <p class="p1">Annually</p>
+          <p class="p2">{{ year }}</p>
+        </div>
       </div>
-      <div class="incentive_card">
-        <p class="p1">Quaterly</p>
-        <p class="p2">{{quarter}}</p>
+      <div class="interview-schedule">
+        <h2>Upcoming Inteviews</h2>
+        <div class="scroll-control">
+          <p *ngIf="today.length == 0" style="color: white">
+            No Interviews for today
+          </p>
+          <div class="Mid_Schedule" *ngFor="let day of today">
+            <p>{{ day.startTime }} - {{ day.endTime }}</p>
+          </div>
+        </div>
       </div>
-      <div class="incentive_card">
-        <p class="p1">Annually</p>
-        <p class="p2">{{year}}</p>
-      </div>
-      
-      
     </div>
-    <div class="interview-schedule">
-      <h2>Upcoming Inteviews</h2>
-      <div class="scroll-control">
 
-        <p *ngIf="today.length==0" style="color: white;">No Interviews for today</p>
-        <div class="Mid_Schedule" *ngFor="let day of today">
-          <p>{{day.startTime}} - {{day.endTime}}</p>
-        </div>
-        
-      </div>
+    <div class="part2">
+      <h1>Incentives</h1>
+      <ul>
+        <li style="--accent-color: #0b374d">
+          <div class="icon"><i class="fa-brands fa-codepen"></i></div>
+
+          <div class="title">
+            <img
+              width="100px"
+              src="https://i.ibb.co/0f7Lq2L/incentive.png"
+              alt="image"
+            />
+          </div>
+          <div class="descr">{{ incentive }}</div>
+        </li>
+      </ul>
     </div>
-    </div>
-    
-      <div class="part2">
-        <h1>Incentives</h1>
-        <ul>
-            <li style="--accent-color:#0B374D">
-                <div class="icon"><i class="fa-brands fa-codepen"></i></div>
-         
-                <div class="title"><img  width="100px" src="https://i.ibb.co/0f7Lq2L/incentive.png" alt="image"></div>
-                <div class="descr">{{incentive}}</div>
-            </li>
-          
-        </ul>
-      </div>
-      <div class="user-profile">
-        <img class="user_img" *ngIf="user" src="{{ user.photoUrl }}" >
-        <p class="user_name" *ngIf="user">{{ user.name }}</p>
-        <p class="user_email" *ngIf="user">{{ user.email }}</p>
-        <p class="position"> Round Paneled: {{round}}</p>
-        <hr>
-        <p class="skil">Skills</p>
-        <div class="user_skills">
-          <div class="skill-card">
-            <p>{{person.primary_Skill}}</p>
-          </div>
-          <div class="skill-card">
-            <p>{{person.secondary_Skill}}</p>
-          </div>
-          <div class="skill-card">
-            <p>{{person.tertiary_Skill}}</p>
-          </div>
+    <div class="user-profile">
+      <img class="user_img" *ngIf="user" src="{{ user.photoUrl }}" />
+      <p class="user_name" *ngIf="user">{{ user.name }}</p>
+      <p class="user_email" *ngIf="user">{{ user.email }}</p>
+      <p class="position">Round Paneled: {{ round }}</p>
+      <hr />
+      <p class="skil">Skills</p>
+      <div class="user_skills">
+        <div class="skill-card">
+          <p>{{ person.primary_Skill }}</p>
         </div>
-        <button class="btn btn-danger mb-2 signout" (click)="signOut()">Sign Out</button>
+        <div class="skill-card">
+          <p>{{ person.secondary_Skill }}</p>
+        </div>
+        <div class="skill-card">
+          <p>{{ person.tertiary_Skill }}</p>
+        </div>
       </div>
-    
+      <button class="btn btn-danger mb-2 signout" (click)="signOut()">
+        Sign Out
+      </button>
+    </div>
+
     <!-- <div class="Right">
       <h2>History</h2>
       <div class="a1">
@@ -164,6 +175,6 @@
       <button class="btn btn-danger" (click)="manage()">Manage slots  <fa-icon [icon]="faRight"></fa-icon></button>
     </div> -->
   </div>
-  
+
   <!-- <app-login #log></app-login> -->
 </body>
