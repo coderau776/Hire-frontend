@@ -1,3 +1,48 @@
 .example-section {
     margin: 12px 0;
   }
+
+input{
+  margin-inline-end: 10px;
+}
+
+.calendar-icon{
+  color: white;
+}
+
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: white !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: white !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: white !important;
+  ;
+}
+
+::ng-deep .mat-form-field-label {
+  /*change color of label*/
+  color: white !important;
+}
+
+
+mat-datepicker-toggle, mat-date-range-input-separator {
+  color: white !important;
+}
+
+
+.date{
+  width: 225px;
+}
+
+.btn{
+  width: 225px;
+  margin: 5px 0px;
+}

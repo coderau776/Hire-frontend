@@ -1,16 +1,39 @@
-<div class="container" style="color: white;height: 100vh;">
-    <br>
-    <h3>Filter Options</h3>
-    
-    <h5>Date Range</h5>
-    <div class="row" style="padding: 12px;">
-        
-            <p style="margin: 0;padding-left: 0;">From</p>
-            <input type="date" placeholder="From" />
-            <p style="margin-bottom: 0;margin-top:10px;padding-left: 0;">To</p>
-             <input type="date" placeholder="To" />
-    </div>
-     <!-- <mat-form-field appearance="fill">
+<div class="container" style="color: white; height: 100vh">
+  <br />
+  <h3>Filter Options</h3>
+
+  <h5>Date Range</h5>
+  <mat-form-field appearance="fill" class="date">
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+      <input matStartDate formControlName="start" placeholder="Start date" />
+      <input matEndDate formControlName="end" placeholder="End date" />
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker>
+      <mat-datepicker-actions>
+        <button mat-button matDatepickerCancel (click)="clearDateField()">
+          Clear
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          matDatepickerApply
+          (click)="onDateChange()"
+        >
+          Apply
+        </button>
+      </mat-datepicker-actions>
+    </mat-date-range-picker>
+  </mat-form-field>
+
+  <!-- <div class="row" style="padding: 12px">
+    <p style="margin: 0; padding-left: 0">From</p>
+    <input type="date" placeholder="From" />
+    <p style="margin-bottom: 0; margin-top: 10px; padding-left: 0">To</p>
+    <input type="date" placeholder="To" />
+  </div> -->
+  <!-- <mat-form-field appearance="fill">
         <mat-label>Enter a date range</mat-label>
         <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
           <input matStartDate formControlName="start" placeholder="Start date">
@@ -18,64 +41,165 @@
         </mat-date-range-input>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
-      
+
          <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
-        <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error> 
+        <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
       </mat-form-field>
-      
+
       <p>Selected range: {{range.value | json}}</p>  -->
 
-      <br>
+  <br />
 
-    <div class="form-check">
-        <h5 style="margin-left: -24px;">Rounds</h5>
-        <input class="form-check-input" (click)="check($event)" type="checkbox" id="round1">
-    <label class="form-check-label"  for="round1">Round 1</label>
-    <br>
-    <input class="form-check-input" type="checkbox" id="round2">
+  <form [formGroup]="Rounds" (change)="onRoundChange()">
+    <h5>Rounds</h5>
+    <input
+      class="form-check-input"
+      (click)="check($event)"
+      type="checkbox"
+      value="1"
+      id="round1"
+      formControlName="round1"
+    />
+    <label class="form-check-label" for="round1"> Round 1</label>
+    <br />
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="round2"
+      value="2"
+      formControlName="round2"
+    />
+    <label class="form-check-label" for="round2"> Round 2</label>
+    <br />
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="round3"
+      value="3"
+      formControlName="round3"
+    />
+    <label class="form-check-label" for="round3"> Round 3</label>
+    <br />
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="round4"
+      formControlName="hr"
+    />
+    <label class="form-check-label" for="round4" value="4"> HR</label>
+  </form>
+
+  <br />
+
+  <form [formGroup]="skills" (change)="onSkillChange()">
+    <h5>Skills</h5>
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="Angular"
+      value="Angular"
+      formControlName="angular"
+    />
+    <label class="form-check-label" for="Angular">Angular</label>
+
+    <br />
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="Java"
+      value="Java"
+      formControlName="java"
+    />
+    <label class="form-check-label" for="Java">Java</label>
+    <br />
+
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="Devops"
+      value="Devops"
+      formControlName="devops"
+    />
+    <label class="form-check-label" for="Devops">Devops</label>
+    <br />
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="Spring"
+      value="Spring"
+      formControlName="spring"
+    />
+    <label class="form-check-label" for="Spring">Spring</label>
+    <br />
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="React"
+      value="React"
+      formControlName="react"
+    />
+    <label class="form-check-label" for="React">React </label>
+    <br />
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="React"
+      value="React"
+      formControlName="react"
+    />
+    <label class="form-check-label" for="React">SQL</label>
+  </form>
+
+  <!-- <div class="form-check"> -->
+  <!-- <h5 style="margin-left: -24px">Rounds</h5>
+    <input
+      class="form-check-input"
+      (click)="check($event)"
+      type="checkbox"
+      value="1"
+      id="round1"
+    />
+    <label class="form-check-label" for="round1">Round 1</label>
+    <br />
+    <input class="form-check-input" type="checkbox" id="round2" value="2" />
     <label class="form-check-label" for="round2">Round 2</label>
-    <br>
-    <input class="form-check-input" type="checkbox" id="round3">
+    <br />
+    <input class="form-check-input" type="checkbox" id="round3" value="3" />
     <label class="form-check-label" for="round3">Round 3</label>
-    <br>
-    <input class="form-check-input" type="checkbox" id="round4">
-    <label class="form-check-label" for="round4">HR</label>
-    <!-- <section class="example-section" [formGroup]="Rounds"> 
+    <br />
+    <input class="form-check-input" type="checkbox" id="round4" />
+    <label class="form-check-label" for="round4" value="4">HR</label> -->
+  <!-- <section class="example-section" [formGroup]="Rounds">
         <h5>Select Round:</h5>
         <p><mat-checkbox formControlName="round1">Round 1</mat-checkbox></p>
         <p><mat-checkbox formControlName="round2">Round 2</mat-checkbox></p>
         <p><mat-checkbox formControlName="round3">Round 3</mat-checkbox></p>
         <p><mat-checkbox formControlName="hr">HR</mat-checkbox></p>
       </section>    -->
-     <br>
-     <br>
+  <br />
+  <!-- <br /> -->
 
-        
-    <h5 style="margin-left: -24px;">Skill</h5>
-    
-        <input class="form-check-input" type="checkbox" id="Angular">
-        <label class="form-check-label" for="Angular">Angular</label>
-    
-    
-    <br>
-    <input class="form-check-input" type="checkbox" id="Java">
+  <!-- <h5 style="margin-left: -24px">Skill</h5>
+
+    <input class="form-check-input" type="checkbox" id="Angular" />
+    <label class="form-check-label" for="Angular">Angular</label>
+
+    <br />
+    <input class="form-check-input" type="checkbox" id="Java" />
     <label class="form-check-label" for="Java">Java</label>
-    <br>
-    <input class="form-check-input" type="checkbox" id="Devops">
+    <br />
+    <input class="form-check-input" type="checkbox" id="Devops" />
     <label class="form-check-label" for="Devops">Devops</label>
-    <br>
-    <input class="form-check-input" type="checkbox" id="Sping">
-    <label class="form-check-label" for="Sping">Spring</label>    
-    </div>
-    <!-- <section class="example-section" [formGroup]="skills"> 
+    <br />
+    <input class="form-check-input" type="checkbox" id="Sping" />
+    <label class="form-check-label" for="Sping">Spring</label>
+  </div> -->
+  <!-- <section class="example-section" [formGroup]="skills">
         <h5>Select Skills:</h5>
         <p><mat-checkbox formControlName="angular">Angular</mat-checkbox></p>
         <p><mat-checkbox formControlName="java">Java</mat-checkbox></p>
         <p><mat-checkbox formControlName="devops">Devops</mat-checkbox></p>
         <p><mat-checkbox formControlName="spring">Spring</mat-checkbox></p>
       </section>  -->
-    
-      
+  <!-- </div> -->
 </div>
-
-
