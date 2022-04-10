@@ -15,6 +15,8 @@ export class EditFormComponent implements OnInit {
   Date1 : Date;
   flag1 = false;
   flag2 = false;
+  from:string = "Select from calendar";
+  to:string = "Select from calendar";
   //flag3 = false;
     range = new FormGroup({
     start: new FormControl(),
@@ -33,6 +35,14 @@ export class EditFormComponent implements OnInit {
     this.Date1=this.calendarService.currentMonth;
     this.calendarService.dateEvent.subscribe((date)=>{
       this.Date1=date;
+      if(this.flag1){
+        if(this.from==="Select from calendar"){
+          this.from = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
+        }
+        else if(this.to==="Select from calendar"){
+          this.to = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
+        }
+      }
     })
   }
 
@@ -62,25 +72,31 @@ export class EditFormComponent implements OnInit {
     this.calendarService.doneEvent.emit(this.Date1.getDay());
     this.st.nativeElement.value="";
     this.et.nativeElement.value="";
-    console.log(val);
+    console.log(val,new Date(this.from),new Date(this.to));
     // console.log(this.slotvService.getNearestDates(new Date(val.startDate),val.day));
     if(val.recurring)
     {
       if(val.weekly){
-           this.slotvService.provideRecurDaySlot(val.startTime,val.endTime,new Date(val.startDate),new Date(val.endDate),val.day).subscribe((res)=>{
+           this.slotvService.provideRecurDaySlot(val.startTime,val.endTime,new Date(this.from),new Date(this.to),val.day).subscribe((res)=>{
          this.slotvService.getSlots().subscribe((slots)=>{
            this.slotvService.setSlots(slots);
          });
+       },(err)=>{console.log(err)},
+       ()=>{
+         this.slotvService.readyToFetch.emit(true);
        })
       console.log('in weekly');
       }
       else{
       
-      this.slotvService.provideRecurSlot(val.startTime,val.endTime,new Date(val.startDate),new Date(val.endDate)).subscribe((res)=>{
+      this.slotvService.provideRecurSlot(val.startTime,val.endTime,new Date(this.from),new Date(this.to)).subscribe((res)=>{
         console.log("recur day "+res);
         this.slotvService.getSlots().subscribe((slots)=>{
           this.slotvService.setSlots(slots);
         });
+      },(err)=>{console.log(err)},
+      ()=>{
+        this.slotvService.readyToFetch.emit(true);
       })
       console.log('in recur')
       }
@@ -90,13 +106,16 @@ export class EditFormComponent implements OnInit {
       console.log("inside else")
       this.slotvService.provideInstantSlot(val.startTime,val.endTime,this.Date1).subscribe((res)=>{
         console.log(res);
+      },(err)=>{console.log(err)},
+      ()=>{
+        this.slotvService.readyToFetch.emit(true);
       });
     }
     this.flag1=false;
   }
 
   
-
+  }
   
 
-}
+

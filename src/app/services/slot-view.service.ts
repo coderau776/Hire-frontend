@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable,EventEmitter } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 import { Slot } from '../models/Slot';
 
 @Injectable({
@@ -9,9 +9,11 @@ import { Slot } from '../models/Slot';
 export class SlotViewService {
   private url_slot: string =
     'http://test-env.eba-p9gye2ye.us-east-1.elasticbeanstalk.com/slots/';
+  readyToFetch:EventEmitter<boolean> = new EventEmitter<boolean>();
   slots: Slot[];
   headers = { 'content-type': 'application/json' };
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   getSlots() {
     return this.http.get<Slot[]>(this.url_slot + localStorage.getItem('id'));

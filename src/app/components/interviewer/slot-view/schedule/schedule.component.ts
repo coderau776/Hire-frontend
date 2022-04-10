@@ -39,7 +39,14 @@ export class ScheduleComponent implements OnInit {
       this.slots = this.slotvService.slots;
       console.log(slots)
     })
-    
+    this.slotvService.readyToFetch.subscribe((data)=>{
+      //this.slots = [...this.slotvService.slots];
+      this.slotvService.getSlots().subscribe((slots)=>{
+        this.slotvService.setSlots(slots);
+        this.slots = this.slotvService.slots;
+        console.log(slots)
+      })
+    })
     this.calendarService.dateEvent.subscribe((date: Date)=>{
       this.selecteddate=date;
     })
