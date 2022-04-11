@@ -33,10 +33,16 @@
             
             <label for="sDate">Start Date :</label>
             <!-- <input class="form-control" type="date" ngModel id="sDate" name="startDate"> -->
-            <div style="background-color: white;color: grey;padding: 10px;border-radius: 7px;border-color: black;">{{from}}</div>
+            <div style="background-color: white;color: grey;padding: 10px;border-radius: 7px;border-color: black;">{{from}}  
+                <!-- <span style="cursor: pointer;color: red;" (click)="remove('from')" *ngIf="from!='Select from calendar'">x</span> -->
+                <fa-icon [icon]="facr" style="cursor: pointer;color: red;" (click)="remove('from')" *ngIf="from!='Select from calendar'"></fa-icon>
+            </div>
 
             <label for="eDate">End Date :</label>
-            <div style="background-color: white;color: grey;padding: 10px;border-radius: 7px;">{{to}}</div>
+            <div style="background-color: white;color: grey;padding: 10px;border-radius: 7px;">{{to}}
+                <!-- <span style="cursor: pointer;color: red;" (click)="remove('to')" *ngIf="to!='Select from calendar'">x</span> -->
+                <fa-icon [icon]="facr" style="cursor: pointer;color: red;" (click)="remove('to')" *ngIf="to!='Select from calendar'"></fa-icon>
+            </div>
             <!-- <input class="form-control" type="date" ngModel id="eDate" name="endDate"> -->
 
 

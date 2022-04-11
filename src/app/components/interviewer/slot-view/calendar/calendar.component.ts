@@ -38,6 +38,7 @@ export class CalendarComponent implements OnInit {
   setProvidedDates(){
     
     this.slotvService.slots.forEach((slot)=>{
+      
       let providedDate = new Date(slot.date);
       let index = providedDate.getMonth()-this.calendarService.currentMonth.getMonth();
       let option = index<0?(12-this.calendarService.currentMonth.getMonth())+providedDate.getMonth():index;

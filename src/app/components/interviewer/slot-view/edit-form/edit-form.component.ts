@@ -3,6 +3,7 @@ import { FormGroup,FormControl } from '@angular/forms';
 import { CalendarServiceService } from 'src/app/services/calendar-service.service'; 
 import { NgForm } from '@angular/forms';
 import { SlotViewService } from 'src/app/services/slot-view.service';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class EditFormComponent implements OnInit {
   flag2 = false;
   from:string = "Select from calendar";
   to:string = "Select from calendar";
+  facr = faTimes;
   //flag3 = false;
     range = new FormGroup({
     start: new FormControl(),
@@ -45,7 +47,14 @@ export class EditFormComponent implements OnInit {
       }
     })
   }
-
+  remove(opt:string){
+    if(opt==='from'){
+      this.from="Select from calendar";
+    }
+    else{
+      this.to="Select from calendar";
+    }
+  }
   instant(){
     this.flag1= false;
   }
