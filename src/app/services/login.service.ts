@@ -7,14 +7,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class LoginService {
-  
-  user:SocialUser;
-  post:string;
-  loggedIn:boolean=false;
-  private url:string = "http://test-env.eba-p9gye2ye.us-east-1.elasticbeanstalk.com/users/"
-  
+  user: SocialUser;
+  post: string;
+  loggedIn: boolean = false;
+  private url: string =
+    'http://ec2-13-232-164-153.ap-south-1.compute.amazonaws.com:8080/users/';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   setUser(user: SocialUser) {
     this.user = user;
@@ -31,10 +30,8 @@ export class LoginService {
     return this.user;
   }
 
-  getPost():Observable<User>{
-
-    return this.http.get<User>(this.url+"user"+"/"+this.user.email);
+  getPost(): Observable<User> {
+    return this.http.get<User>(this.url + 'user' + '/' + this.user.email);
     //return this.http.get<User>(this.url+"1");
-    
   }
 }

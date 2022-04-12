@@ -9,9 +9,9 @@ import { Slot } from '../models/Slot';
 })
 export class PanelistService {
   private url_inter: string =
-    'http://test-env.eba-p9gye2ye.us-east-1.elasticbeanstalk.com/interviewer/';
+    'http://ec2-13-232-164-153.ap-south-1.compute.amazonaws.com:8080/interviewer/';
   private url_slot: string =
-    'http://test-env.eba-p9gye2ye.us-east-1.elasticbeanstalk.com/slots/';
+    'http://ec2-13-232-164-153.ap-south-1.compute.amazonaws.com:8080/slots/';
   interviewer: Interviewer;
 
   constructor(private http: HttpClient) {}
@@ -30,9 +30,15 @@ export class PanelistService {
     this.interviewer = person;
   }
 
-
-  getFormattedDate(date:Date){
-    return (date.getMonth()<=9?"0"+(date.getMonth()+1):(date.getMonth()+1))+"-"+(date.getDate()<=9?"0"+date.getDate():date.getDate())+"-"+date.getFullYear();
+  getFormattedDate(date: Date) {
+    return (
+      (date.getMonth() <= 9
+        ? '0' + (date.getMonth() + 1)
+        : date.getMonth() + 1) +
+      '-' +
+      (date.getDate() <= 9 ? '0' + date.getDate() : date.getDate()) +
+      '-' +
+      date.getFullYear()
+    );
   }
-
 }
