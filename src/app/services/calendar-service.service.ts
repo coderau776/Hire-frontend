@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable,EventEmitter } from '@angular/core';
 import { calendarDate } from '../models/calendarDate.model';
-import { Slot } from '../models/Slot';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +13,7 @@ export class CalendarServiceService {
   nextnextMonth:Date;
   nextMonthDates:string[][];
   nextnextMonthDates:string[][];   
-  provided:Slot[];
+  provided:string[];
   dateEvent:EventEmitter<Date> = new EventEmitter();
   doneEvent:EventEmitter<number> = new EventEmitter();
 
@@ -68,6 +67,7 @@ export class CalendarServiceService {
     this.currentMonthDates = this.getDatesArray(this.currentMonthDates,this.currentMonth);
     this.nextMonthDates = this.getDatesArray(this.nextMonthDates,this.nextMonth);
     this.nextnextMonthDates = this.getDatesArray(this.nextnextMonthDates,this.nextnextMonth);
+    this.provided = ['03-22-2022','03-31-2022','04-01-2022','04-06-2022'];
     
   }
 

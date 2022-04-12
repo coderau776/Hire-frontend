@@ -23,7 +23,7 @@ export class PanelistComponent implements OnInit {
   quarter:number = 0;
   year:number = 0;
   incentive:number = 0;
-  today:Slot[]=[];
+  today:Slot[];
   user = JSON.parse(localStorage.getItem('user')!);
   // user1 = JSON.parse(this.user)
   faUser = faUser;
@@ -115,11 +115,9 @@ export class PanelistComponent implements OnInit {
       console.log("error - "+error)
     },()=>{
       this.panelistService.getTodaysSchedule(this.person.userId).subscribe((data)=>{
-        let currDate = new Date();
-        // console.log(data.filter((slot)=>(slot.slotId===65)));
-        // console.log(data.filter((slot)=>(slot.date===currDate.getMonth()+""+currDate.getDate()+currDate.getFullYear())))
-        // console.log(currDate.getMonth()+""+currDate.getDate()+currDate.getFullYear())
-        this.today = data.filter((slot)=>(slot.date===this.panelistService.getFormattedDate(new Date())));
+        let currDate = new Date().toLocaleDateString('en-GB');
+
+        this.today = data.filter((slot)=>(slot.date===currDate));
         
       })
     })

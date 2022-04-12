@@ -42,7 +42,7 @@ input[type="date"] {
 }
 
 .btn {
-  width: 40%;
+  width: 100px;
   margin: 5px 10px;
   margin-bottom: 25px;
   transition: all 0.3s;

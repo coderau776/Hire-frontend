@@ -6,11 +6,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## NOTE
-there maybe a sweetalert error, so to resolve it do the following-
-1. go to hire\node_modules\sweetalert\typings\sweetalert.d.ts 
-2. comment or remove 4th line which is const swal: SweetAlert;
-
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.

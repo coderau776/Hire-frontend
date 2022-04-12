@@ -106,7 +106,7 @@
 
         <p *ngIf="today.length==0" style="color: white;">No Interviews for today</p>
         <div class="Mid_Schedule" *ngFor="let day of today">
-          <p style="padding: 0.5rem;font-size: 1.3rem;">Meeting today at {{day.startTime}} - {{day.endTime}}</p>
+          <p>{{day.startTime}} - {{day.endTime}}</p>
         </div>
         
       </div>
@@ -129,7 +129,7 @@
         <img class="user_img" *ngIf="user" src="{{ user.photoUrl }}" >
         <p class="user_name" *ngIf="user">{{ user.name }}</p>
         <p class="user_email" *ngIf="user">{{ user.email }}</p>
-        <p class="position"> Round Paneled: {{person.round_Alloted}}</p>
+        <p class="position"> Round Paneled: {{round}}</p>
         <hr>
         <p class="skil">Skills</p>
         <div class="user_skills">

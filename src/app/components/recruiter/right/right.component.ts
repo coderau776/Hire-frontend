@@ -15,8 +15,10 @@ import { Slot } from 'src/app/models/Slot';
 import { MatSort } from '@angular/material/sort';
 import { PanelistService } from 'src/app/services/panelist.service';
 import { Interviewer } from 'src/app/models/Interviewer';
-import { FormControl, FormGroup } from '@angular/forms';
-import { iif } from 'rxjs';
+import { EmailValidator, FormControl, FormGroup } from '@angular/forms';
+import { Email } from '../../../../assets/smtp';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { DateRange } from '@angular/material/datepicker';
 
 // const tableData: Table[] = [
 //   {
@@ -167,12 +169,14 @@ export class RightComponent implements OnInit, OnChanges {
 
   displayedColumns: string[] = [
     'slotId',
+    'title',
     'emailId',
     'roundAlloted',
     'primarySkill',
     'secondarySkill',
     'tertiarySkill',
     'date',
+    'action',
   ];
 
   // data = new MatTableDataSource<Table>(tableData);
@@ -183,6 +187,8 @@ export class RightComponent implements OnInit, OnChanges {
   tableData: any = [];
 
   apiResponse: any = [];
+
+  isLoading: boolean = false;
 
   //storing all the slots detials here which are fetched from API
   dataSource: MatTableDataSource<Table>;
@@ -230,6 +236,8 @@ export class RightComponent implements OnInit, OnChanges {
               this.interviewerData.push(val);
               let temp = {
                 slotId: data.slotId,
+                startTime: data.startTime,
+                endTime: data.endTime,
                 title: val.username,
                 emailId: val.emailid,
                 roundAlloted: val.round_Alloted,
@@ -237,11 +245,13 @@ export class RightComponent implements OnInit, OnChanges {
                 secondarySkill: val.secondary_Skill,
                 tertiarySkill: val.tertiary_Skill,
                 date: data.date,
+                status: data.status,
               };
               this.tableData.push(temp);
             },
             complete: () => {
               this.dataSource = new MatTableDataSource<Table>(this.tableData);
+              //api for history
               this.apiResponse = this.dataSource;
               this.dataSource.paginator = this.paginator;
               this.dataSource.sort = this.sort;
@@ -256,6 +266,7 @@ export class RightComponent implements OnInit, OnChanges {
     this.dataSource.filter = value.trim().toLowerCase();
   }
 
+  //any input is changed, this funtion is called
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
 
@@ -269,7 +280,7 @@ export class RightComponent implements OnInit, OnChanges {
 
     if (changes['dates'] !== undefined) {
       this.onDateChange(changes['dates']);
-      this.onDateChange(changes['dates']);
+      // this.onDateChange(changes['dates']);
     }
   }
 
@@ -325,7 +336,6 @@ export class RightComponent implements OnInit, OnChanges {
       }
     }
   }
-
   //for Skills selection
   onSkillChange(skills: any) {
     //all the rounds to display
@@ -379,12 +389,14 @@ export class RightComponent implements OnInit, OnChanges {
       }
     }
   }
-
+  //For Date Selection
   onDateChange(val: any) {
     if (val.currentValue === undefined) {
       console.log('no filter');
     } else {
       let event = val.currentValue;
+      console.log(event);
+
       let startDate = event.start;
       let endDate = event.end;
 
@@ -408,6 +420,8 @@ export class RightComponent implements OnInit, OnChanges {
         console.log(formattedStartDate);
         console.log(formattedEndDate);
 
+        console.log(this.dataSource);
+
         let filterData = this.dataSource.filteredData.filter((data) => {
           return (
             data.date >= formattedStartDate && data.date <= formattedEndDate
@@ -421,7 +435,77 @@ export class RightComponent implements OnInit, OnChanges {
       this.dataSource.sort = this.sort;
     }
   }
+
+  //to update the slot status
+  //this method is basically to update the status of slot after sucessfully sending the mail
+  //because of this when page is refreshed slot will no longer be on the list of available slots
+  updateStatus(element) {
+    let status = {
+      slotId: element.slotId,
+      userId: element.userId,
+      status: 'not available',
+      date: element.date,
+      startTime: element.startTime,
+      endTime: element.endTime,
+    };
+
+    //calling the updateStatus method from the service class to update the status of particular slot
+    this._recruiterService.updateStatus(status).subscribe({
+      next: (result) => console.log(result),
+      error: (err) => console.log(err),
+      complete: () => {
+        console.log('Status Updated');
+        this.isLoading = false;
+      },
+    });
+  }
+
+  //funtion to send the mail to user
+  sendEmail(element) {
+    confirm('Are you sure, you want to send the mail?')
+      ? this._recruiterService
+          .sendEmail(this.createEmailMessage(element))
+          .subscribe({
+            next: (result) => {
+              console.log(result); //printing the message(body of the mail)
+            },
+            error: (err) => {
+              alert('Some error occur, try again'); //alert if there are some errors
+              console.log(err);
+            },
+            complete: () => {
+              element.status = 'not available'; //changing the value of status
+              console.log('Mail Send...');
+              this.updateStatus(element);
+              alert('Email was send Sucessfully');
+            },
+          })
+      : console.log('Not Confirmed');
+
+    this.isLoading = true;
+  }
+
+  //gather all the information that is to be passed as body to post request
+  createEmailMessage(element) {
+    console.log(element.status);
+
+    const message: Email = {
+      toEmail: element.emailId,
+      subject: `Interview Scheduled on ${element.date}`,
+      body: `Hey ${element.title},
+
+As per slot given by you, we have scheduled your Interview on ${element.date} from ${element.startTime} to ${element.endTime}.
+We hope you are ready to take the Interview and incase of any queries,
+please feel free to reach out to us.
+
+Thanks & Regards,
+Recruitment Team.`,
+    };
+
+    return message;
+  }
 }
+
 // dataSource!: MatTableDataSource<any>;
 // res!: any[];
 // oriRes!: any[];
@@ -450,4 +534,4 @@ export class RightComponent implements OnInit, OnChanges {
 //     this.dataSource.paginator = this.paginator;
 //   });
 // }
-// }
+//

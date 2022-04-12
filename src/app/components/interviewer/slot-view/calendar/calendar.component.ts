@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit,QueryList,Renderer2,ViewChildren } from '@angular/core';
 import { faArrowRight,faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { CalendarServiceService } from 'src/app/services/calendar-service.service';
-import { SlotViewService } from 'src/app/services/slot-view.service';
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -24,7 +23,7 @@ export class CalendarComponent implements OnInit {
   @ViewChildren('d')
   ds:QueryList<ElementRef>;
   
-  constructor(private renderer:Renderer2,private calendarService:CalendarServiceService,private slotvService:SlotViewService) { 
+  constructor(private renderer:Renderer2,private calendarService:CalendarServiceService) { 
     this.months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
     
   }
@@ -37,9 +36,8 @@ export class CalendarComponent implements OnInit {
 
   setProvidedDates(){
     
-    this.slotvService.slots.forEach((slot)=>{
-      
-      let providedDate = new Date(slot.date);
+    this.calendarService.provided.forEach((date)=>{
+      let providedDate = new Date(date);
       let index = providedDate.getMonth()-this.calendarService.currentMonth.getMonth();
       let option = index<0?(12-this.calendarService.currentMonth.getMonth())+providedDate.getMonth():index;
       
@@ -91,7 +89,6 @@ export class CalendarComponent implements OnInit {
     this.calculateDisable();
     
     this.calendarService.doneEvent.subscribe((date)=>{
-      this.setProvidedDates();
       this.renderer.addClass(this.target,'provided');
     })
     

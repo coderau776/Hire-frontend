@@ -1,7 +1,7 @@
 <div class="container" style="padding:2rem 5rem 2rem 5rem;">
     <form #slotForm="ngForm" (ngSubmit)="getvalues(slotForm.value)" >
 
-        <h5> {{ Date1 | date:'fullDate'}} </h5>
+        <h4> {{ Date1 | date:'fullDate'}} </h4>
         <div class="row">
             <div class="col-md-6">
                 <label for="stime">Start Time : </label>
@@ -32,18 +32,10 @@
         <div class="recurring" *ngIf="flag1">
             
             <label for="sDate">Start Date :</label>
-            <!-- <input class="form-control" type="date" ngModel id="sDate" name="startDate"> -->
-            <div style="background-color: white;color: grey;padding: 10px;border-radius: 7px;border-color: black;">{{from}}  
-                <!-- <span style="cursor: pointer;color: red;" (click)="remove('from')" *ngIf="from!='Select from calendar'">x</span> -->
-                <fa-icon [icon]="facr" style="cursor: pointer;color: red;" (click)="remove('from')" *ngIf="from!='Select from calendar'"></fa-icon>
-            </div>
+            <input class="form-control" type="date" ngModel id="sDate" name="start date">
 
             <label for="eDate">End Date :</label>
-            <div style="background-color: white;color: grey;padding: 10px;border-radius: 7px;">{{to}}
-                <!-- <span style="cursor: pointer;color: red;" (click)="remove('to')" *ngIf="to!='Select from calendar'">x</span> -->
-                <fa-icon [icon]="facr" style="cursor: pointer;color: red;" (click)="remove('to')" *ngIf="to!='Select from calendar'"></fa-icon>
-            </div>
-            <!-- <input class="form-control" type="date" ngModel id="eDate" name="endDate"> -->
+            <input class="form-control" type="date" ngModel id="eDate" name="end date">
 
 
             <button (click)="daily()" class="select" type="button">Daily</button>
@@ -66,7 +58,7 @@
             <input class="form-check-input" type="radio" ngModel id="tue" name="day" value="Tuesday">
             <label class="form-check-label" for="tue">Tuesday</label>
             <br>
-            <input class="form-check-input" type="radio" ngModel id="wed" name="day" value="Wednesday">
+            <input class="form-check-input" type="radio" id="wed" name="day" value="Wednesday">
             <label class="form-check-label" for="wed">Wednesday</label>
             <br>
             <input class="form-check-input" type="radio" ngModel id="thu" name="day" value="Thursday">

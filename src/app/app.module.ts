@@ -35,6 +35,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { RecruiterService } from './services/recruiter.service';
 
 @NgModule({
@@ -75,6 +76,7 @@ import { RecruiterService } from './services/recruiter.service';
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
+    MatProgressBarModule,
   ],
   providers: [
     {

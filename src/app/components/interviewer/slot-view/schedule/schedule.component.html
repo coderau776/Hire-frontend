@@ -2,10 +2,10 @@
     <br>
     <h5>Interviews of {{selecteddate|date}}</h5>
      
-    <div  *ngFor="let slot of slots"> 
-        <div *ngIf="this.selecteddate.getDate() ===gd(slot.date).getDate() && this.selecteddate.getMonth() ===gd(slot.date).getMonth() ">
+    <div  *ngFor="let event of events"> 
+        <div *ngIf="this.selecteddate.getDay() ===this.event.Date?.getDay() && this.selecteddate.getMonth() ===this.event.Date?.getMonth() ">
             <div class="Mid_Schedule">
-                <h5>Meeting time - {{slot.startTime}} - {{slot.endTime}}</h5>         
+                <h5>{{event.Time}}  , {{event.task}}</h5>                   
               </div>
         </div>              
     </div>
