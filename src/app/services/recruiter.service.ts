@@ -11,9 +11,7 @@ export class RecruiterService {
   check: EventEmitter<boolean> = new EventEmitter();
 
   private url: string =
-    'http://test-env.eba-p9gye2ye.us-east-1.elasticbeanstalk.com';
-
-  private emailURL: string = 'http://localhost:8080/send-email';
+    'http://ec2-13-232-164-153.ap-south-1.compute.amazonaws.com:8080/';
 
   constructor(private http: HttpClient) {}
   getData(): Observable<Slot[]> {
@@ -28,9 +26,13 @@ export class RecruiterService {
   sendEmail(message: Email): Observable<any> {
     console.log(JSON.stringify(message));
 
-    return this.http.post<Email>(this.emailURL, JSON.stringify(message), {
-      headers: { 'content-type': 'application/json' },
-    });
+    return this.http.post<Email>(
+      `${this.url}/send-email`,
+      JSON.stringify(message),
+      {
+        headers: { 'content-type': 'application/json' },
+      }
+    );
   }
 
   //this method is responsible for updating the slot status
