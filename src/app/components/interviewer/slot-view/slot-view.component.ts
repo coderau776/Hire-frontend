@@ -19,10 +19,8 @@ export class SlotViewComponent implements OnInit {
       this.router.navigate(['/']);
       swal( "Oops" , "Please Login to continue" ,  "error" );
     }
+
     
-    this.slotvService.getSlots().subscribe((slots)=>{
-      this.slotvService.setSlots(slots);
-    })
   }
   navtopan():void{
     
