@@ -53,7 +53,6 @@ export class SlotViewService {
       { headers: this.headers }
     );
   }
-
   provideRecurDaySlot(
     startTime: string,
     endTime: string,

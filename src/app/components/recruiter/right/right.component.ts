@@ -230,11 +230,14 @@ export class RightComponent implements OnInit, OnChanges {
       },
       complete: () => {
         this.slotData.forEach((data) => {
+          console.log(data);
+
           this._panelistService.getDetails(data.userId).subscribe({
             next: (val) => {
               // console.log(val);
               this.interviewerData.push(val);
               let temp = {
+                userId: data.userId,
                 slotId: data.slotId,
                 startTime: data.startTime,
                 endTime: data.endTime,
@@ -440,6 +443,7 @@ export class RightComponent implements OnInit, OnChanges {
   //this method is basically to update the status of slot after sucessfully sending the mail
   //because of this when page is refreshed slot will no longer be on the list of available slots
   updateStatus(element) {
+    console.log(element);
     let status = {
       slotId: element.slotId,
       userId: element.userId,
