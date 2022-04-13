@@ -222,6 +222,7 @@ export class RightComponent implements OnInit, OnChanges {
   ) {}
 
   ngOnInit(): void {
+    
     this._recruiterService.getData().subscribe({
       next: (data) => {
         this.slotData = data;
@@ -254,19 +255,25 @@ export class RightComponent implements OnInit, OnChanges {
             },
             complete: () => {
               this.dataSource = new MatTableDataSource<Table>(this.tableData);
+              console.log(data.userId)
+              console.log(this.dataSource)
               //api for history
               this.apiResponse = this.dataSource;
               this.dataSource.paginator = this.paginator;
               this.dataSource.sort = this.sort;
             },
           });
+          
         });
+        
       },
     });
+    
   }
 
   applyFilter(value: String) {
     this.dataSource.filter = value.trim().toLowerCase();
+    
   }
 
   //any input is changed, this funtion is called

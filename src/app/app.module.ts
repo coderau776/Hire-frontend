@@ -9,9 +9,7 @@ import { GoogleLoginProvider } from 'angularx-social-login';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GoogleSignInComponent } from './components/login/google-sign-in/google-sign-in.component';
-import { AfterLoginComponent } from './components/after-login/after-login.component';
 import { LoginComponent } from './components/login/login.component';
-import { CardComponent } from './components/after-login/card/card.component';
 import { InterviewerComponent } from './components/interviewer/interviewer.component';
 import { RecruiterComponent } from './components/recruiter/recruiter.component';
 import { SlotViewComponent } from './components/interviewer/slot-view/slot-view.component';
@@ -36,14 +34,14 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { RecruiterService } from './services/recruiter.service';
+import { PipePipe } from './pipes/pipe.pipe';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     GoogleSignInComponent,
-    AfterLoginComponent,
     LoginComponent,
-    CardComponent,
     InterviewerComponent,
     RecruiterComponent,
     SlotViewComponent,
@@ -53,6 +51,7 @@ import { RecruiterService } from './services/recruiter.service';
     PanelistComponent,
     LeftComponent,
     RightComponent,
+    PipePipe,
   ],
   imports: [
     BrowserModule,
