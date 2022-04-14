@@ -9,6 +9,7 @@ import swal from 'SweetAlert';
 import { Slot } from 'src/app/models/Slot';
 import { Interviewer } from 'src/app/models/Interviewer';
 import { PanelistService } from 'src/app/services/panelist.service';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 
 @Component({
@@ -17,7 +18,6 @@ import { PanelistService } from 'src/app/services/panelist.service';
   styleUrls: ['./panelist.component.css']
 })
 export class PanelistComponent implements OnInit {
-
   users:string[];
   month:number = 0;
   quarter:number = 0;
@@ -34,7 +34,7 @@ export class PanelistComponent implements OnInit {
   person:Interviewer;
   round:string="2";
 
-  constructor(private loginService:LoginService,private router:Router,private panelistService:PanelistService) {
+  constructor(private loginService:LoginService,private router:Router,private panelistService:PanelistService,private ngx:NgxUiLoaderService) {
     // userData.users().subscribe((data) => {
     //   console.warn("data", data);
     //   this.users = data;
@@ -107,6 +107,7 @@ export class PanelistComponent implements OnInit {
     }
     
     this.panelistService.getDetails(this.getId()).subscribe((person)=>{
+      this.ngx.start();  
       console.log(person)
       this.round = person.round_Alloted;
       this.person=person;
@@ -120,6 +121,8 @@ export class PanelistComponent implements OnInit {
         // console.log(data.filter((slot)=>(slot.date===currDate.getMonth()+""+currDate.getDate()+currDate.getFullYear())))
         // console.log(currDate.getMonth()+""+currDate.getDate()+currDate.getFullYear())
         this.today = data.filter((slot)=>(slot.date===this.panelistService.getFormattedDate(new Date())));
+        this.ngx.stop();
+      },()=>{
         
       })
     })
