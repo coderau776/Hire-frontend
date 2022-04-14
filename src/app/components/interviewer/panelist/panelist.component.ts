@@ -18,6 +18,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
   styleUrls: ['./panelist.component.css']
 })
 export class PanelistComponent implements OnInit {
+  time:string;
   users:string[];
   month:number = 0;
   quarter:number = 0;
@@ -39,7 +40,15 @@ export class PanelistComponent implements OnInit {
     //   console.warn("data", data);
     //   this.users = data;
     // });
-
+    var t = new Date().getHours();
+    if(t>=12 && t<=16){
+      this.time="Afternoon"
+    }
+    else if(t>16 && t<=24)
+      this.time ="Evening"
+    else
+      this.time="Morning"
+      
     this.log = this.loginService.getUser();
     //console.log(this.log.photoUrl);
   }

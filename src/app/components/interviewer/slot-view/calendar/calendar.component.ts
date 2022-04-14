@@ -92,6 +92,7 @@ export class CalendarComponent implements OnInit {
     
     this.calendarService.doneEvent.subscribe((date)=>{
       this.setProvidedDates();
+      
       // this.renderer.addClass(this.target,'provided');
     })
     

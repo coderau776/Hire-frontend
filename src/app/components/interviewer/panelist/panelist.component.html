@@ -65,19 +65,19 @@
   
   <div  class="main-content">
     <div class="part1">
-    <p class="greet" *ngIf="user">Good Morning {{user.firstName}} ....</p>
+    <p class="greet" *ngIf="user">Good {{time}} {{user.firstName}} ....</p>
     
     <div class="incentive">
-      <div class="incentive_card">
-        <p class="p1">Interviews taken Monthly</p>
+      <div title="Interviews taken Monthly" class="incentive_card">
+        <p class="p1">Monthly</p>
         <p class="p2">{{month}}</p>
       </div>
-      <div class="incentive_card">
-        <p class="p1">Interviews taken Quaterly</p>
+      <div title="Interviews taken Quaterly" class="incentive_card">
+        <p class="p1">Quaterly</p>
         <p class="p2">{{quarter}}</p>
       </div>
-      <div class="incentive_card">
-        <p class="p1">Interviews taken Annually</p>
+      <div title="Interviews taken Annually" class="incentive_card">
+        <p class="p1">Annually</p>
         <p class="p2">{{year}}</p>
       </div>
       

@@ -79,7 +79,15 @@ export class EditFormComponent implements OnInit {
 
   getvalues(val: any){
     val = {...val,"recurring":this.flag1,"weekly":this.flag2}
-    
+    if(val.startTime==="" || val.endTime==="")
+    {
+      alert("Time details are empty")
+      return null;
+    }
+    if(val.endTime<=val.startTime){
+      alert("Invalid slot time");
+      return null;
+    }
     this.st.nativeElement.value="";
     this.et.nativeElement.value="";
     console.log(val,new Date(this.from),new Date(this.to));
@@ -97,6 +105,7 @@ export class EditFormComponent implements OnInit {
        ()=>{
          this.slotvService.readyToFetch.emit(true);
          this.ngx.stop();
+         alert("Slots added successfully")
        })
       console.log('in weekly');
       }
@@ -111,6 +120,7 @@ export class EditFormComponent implements OnInit {
       ()=>{
         this.slotvService.readyToFetch.emit(true);
         this.ngx.stop();
+        alert("Slots added successfully")
       })
       console.log('in recur')
       }
@@ -118,6 +128,12 @@ export class EditFormComponent implements OnInit {
     }
     else{
       console.log("inside else")
+      if(this.Date1.getDate()===new Date().getDate() && this.Date1.getMonth()===new Date().getMonth())
+      {
+        alert("Select date from calendar");
+        this.ngx.stop();
+        return null;
+      }
       this.slotvService.provideInstantSlot(val.startTime,val.endTime,this.Date1).subscribe((res)=>{
         console.log(res);
       },(err)=>{console.log(err)},
@@ -125,6 +141,7 @@ export class EditFormComponent implements OnInit {
         this.slotvService.readyToFetch.emit(true);
         this.calendarService.doneEvent.emit(this.Date1.getDay());
         this.ngx.stop();
+        alert("Slots added successfully")
       });
     }
     this.flag1=false;
