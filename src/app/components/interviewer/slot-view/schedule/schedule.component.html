@@ -1,11 +1,11 @@
 <div  class="outerbox" >            
     <br>
-    <h5>Interviews of {{selecteddate|date}}</h5>
+    <h5 style="text-align: center;">Slots for {{selecteddate|date}}</h5>
      
     <div  *ngFor="let slot of slots"> 
         <div *ngIf="this.selecteddate.getDate() ===gd(slot.date).getDate() && this.selecteddate.getMonth() ===gd(slot.date).getMonth() ">
             <div class="Mid_Schedule">
-                <h5>Meeting time - {{slot.startTime}} - {{slot.endTime}}</h5>         
+                <h6>Slot time - {{slot.startTime}} - {{slot.endTime}}</h6>         
               </div>
         </div>              
     </div>

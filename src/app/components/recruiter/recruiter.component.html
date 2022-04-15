@@ -1,11 +1,25 @@
 <div class="main-content">
-
-    <div class="col-md-2" style="background-color: #142f43;height: 100%;margin: 0px;padding: 0;left: -1rem;">
-        <app-left></app-left>
-    </div>
-    <div class="col-md-10">
-        <app-right></app-right>
-
-    </div>
-
+  <div
+    class="col-md-2"
+    style="
+      background-color: #142f43;
+      height: 100%;
+      margin: 0px;
+      padding: 0;
+      left: -1rem;
+    "
+  >
+    <app-left
+      (roundEmitter)="getRounds($event)"
+      (skillEmitter)="getSkills($event)"
+      (dateEmitter)="getDateRange($event)"
+    ></app-left>
+  </div>
+  <div class="col-md-10">
+    <app-right
+      [postRounds]="rounds"
+      [postSkills]="skills"
+      [postDateRange]="dateRange"
+    ></app-right>
+  </div>
 </div>

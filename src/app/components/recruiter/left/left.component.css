@@ -1,3 +1,63 @@
 .example-section {
-    margin: 12px 0;
-  }
+  margin: 12px 0;
+}
+
+input {
+  margin-inline-end: 10px;
+}
+
+.calendar-icon {
+  color: white;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: white !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: white !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: white !important;
+}
+
+::ng-deep .mat-form-field-label {
+  /*change color of label*/
+  color: white !important;
+}
+
+mat-datepicker-toggle,
+mat-date-range-input-separator {
+  color: white !important;
+}
+
+input[type="date"] {
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+.btn {
+  width: 100px;
+  margin: 5px 10px;
+  margin-bottom: 25px;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background-color: #006dc7 !important;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #7b7a7a;
+  color: white;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}

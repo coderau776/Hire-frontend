@@ -1,24 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl,FormBuilder} from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { ThemePalette } from '@angular/material/core';
 import { RecruiterService } from 'src/app/services/recruiter.service';
-
 
 @Component({
   selector: 'app-left',
   templateUrl: './left.component.html',
-  styleUrls: ['./left.component.css']
+  styleUrls: ['./left.component.css'],
 })
 export class LeftComponent implements OnInit {
- 
-   Rounds: FormGroup;
-   skills: FormGroup;
+  dummy: String;
+
+  Rounds: FormGroup;
+  skills: FormGroup;
   range = new FormGroup({
     start: new FormControl(),
     end: new FormControl(),
   });
 
-   //constructor(private recruiterService:RecruiterService) { }
-  constructor(fb: FormBuilder,private recruiterService:RecruiterService) {
+  @Output() public roundEmitter = new EventEmitter();
+  @Output() public skillEmitter = new EventEmitter();
+  @Output() public dateEmitter = new EventEmitter();
+
+  //constructor(private recruiterService:RecruiterService) { }
+  constructor(fb: FormBuilder, private recruiterService: RecruiterService) {
     this.Rounds = fb.group({
       round1: false,
       round2: false,
@@ -30,20 +35,52 @@ export class LeftComponent implements OnInit {
       java: false,
       devops: false,
       spring: false,
+      react: false,
     });
 
+    this.range = fb.group({
+      start: null,
+      end: null,
+    });
   }
 
   ngOnInit(): void {
+    this.recruiterService.applyFilter().subscribe({
+      next: (data) => (this.dummy = data),
+    });
   }
 
-  check(event:any){
-    if(event.target.checked){
+  check(event: any) {
+    if (event.target.checked) {
       this.recruiterService.check.emit(true);
-    }
-    else{
+    } else {
       this.recruiterService.check.emit(false);
     }
   }
 
+  onRoundChange() {
+    this.roundEmitter.emit(this.Rounds.value);
+  }
+
+  onSkillChange() {
+    this.skillEmitter.emit(this.skills.value);
+  }
+
+  onDateChange(isReset: boolean) {
+    let val;
+    isReset
+      ? (val = { start: null, end: null })
+      : (val = {
+          start: new Date(this.range.value.start),
+          end: new Date(this.range.value.end),
+        });
+
+    this.dateEmitter.emit(val);
+  }
+
+  clearDateField() {
+    this.range.reset;
+    console.log(this.range.value);
+    this.onDateChange(true);
+  }
 }

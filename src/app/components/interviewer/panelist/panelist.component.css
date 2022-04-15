@@ -7,7 +7,7 @@ body {
     background: #fff;
     padding: 0;
     margin: 0;
-    font-family: 'Varela Round', sans-serif;
+    /* font-family: 'Varela Round', sans-serif; */
 }
 .header {
     display: block;
@@ -409,7 +409,7 @@ input[type="checkbox"]:checked ~ .main-content > .interview-schedule {
     font-family: sans-serif;
     bottom: 1px;
     left: 5px;
-    font-size: 20px;
+    font-size: 15px;
     margin-bottom: 10px;
     margin-left: 10px;
 }
@@ -601,7 +601,7 @@ ul li .descr {
 }
 .user_name{
     font-weight: bold;
-    font-size: 22px;
+    font-size: 15px;
     text-align: center;
     margin-top: 20px;
 }

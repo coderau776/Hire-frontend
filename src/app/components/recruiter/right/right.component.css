@@ -1,3 +1,65 @@
 table {
-    width: 90%;
+  width: 100%;
+}
+
+.table-container {
+  margin: 20px 30px;
+  padding: 10px;
+  box-shadow: 0px 0px 5px 0.5px rgba(0, 0, 0, 0.5);
+}
+
+mat-form-field {
+  margin: 10px 20px;
+}
+
+.row-btn {
+  margin: 5px 10px;
+  border: none;
+  background-color: #00447c;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 15px;
+  transition: all 0.3s;
+}
+
+.progress-bar {
+  height: 5px;
+  width: 80%;
+  margin: auto;
+  background-color: #00447c;
+}
+
+.loading {
+  animation-name: loading;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  animation-delay: 0.5s;
+  transition: all 0.2s;
+}
+
+.row-btn-disabled {
+  margin: 5px 10px;
+  border: none;
+  background-color: #8bcbff !important;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 15px;
+}
+
+.row-btn:hover {
+  transform: scale(1.1);
+}
+
+@keyframes loading {
+  from {
+    transform: scale(1);
+    background-color: #00447c;
   }
+
+  to {
+    background-color: #2e95ea;
+    transform: scale(1.2);
+  }
+}
