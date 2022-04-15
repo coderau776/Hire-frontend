@@ -28,9 +28,9 @@
   <h5>Enter Date Range</h5>
   <div class="row" style="padding: 12px" [formGroup]="range">
     <p style="margin: 0; padding-left: 0">From</p>
-    <input type="date" placeholder="From" formControlName="start" />
+    <input class="form-control" type="date" placeholder="From" formControlName="start" />
     <p style="margin-bottom: 0; margin-top: 10px; padding-left: 0">To</p>
-    <input type="date" placeholder="To" formControlName="end" />
+    <input class="form-control" type="date" placeholder="To" formControlName="end" />
   </div>
   <button class="btn btn-secondary" (click)="clearDateField()">Clear</button>
   <button class="btn btn-primary" (click)="onDateChange(false)">Apply</button>

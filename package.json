@@ -26,6 +26,7 @@
     "angularx-social-login": "^4.0.1",
     "aos": "^2.3.4",
     "bootstrap-icons": "^1.8.1",
+    "ngx-ui-loader": "^13.0.0",
     "rxjs": "~7.5.0",
     "sweetalert": "^2.1.2",
     "tslib": "^2.3.0",

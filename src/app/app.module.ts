@@ -35,7 +35,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { RecruiterService } from './services/recruiter.service';
 import { PipePipe } from './pipes/pipe.pipe';
-
+import { NgxUiLoaderModule } from "ngx-ui-loader";
 
 @NgModule({
   declarations: [
@@ -52,6 +52,7 @@ import { PipePipe } from './pipes/pipe.pipe';
     LeftComponent,
     RightComponent,
     PipePipe,
+
   ],
   imports: [
     BrowserModule,
@@ -74,6 +75,7 @@ import { PipePipe } from './pipes/pipe.pipe';
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
+    NgxUiLoaderModule
   ],
   providers: [
     {

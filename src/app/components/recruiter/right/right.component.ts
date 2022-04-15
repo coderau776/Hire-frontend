@@ -19,6 +19,7 @@ import { EmailValidator, FormControl, FormGroup } from '@angular/forms';
 import { Email } from '../../../../assets/smtp.js';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { DateRange } from '@angular/material/datepicker';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 // const tableData: Table[] = [
 //   {
@@ -218,11 +219,12 @@ export class RightComponent implements OnInit, OnChanges {
 
   constructor(
     private _recruiterService: RecruiterService,
-    private _panelistService: PanelistService
+    private _panelistService: PanelistService,
+    private ngx:NgxUiLoaderService
   ) {}
 
   ngOnInit(): void {
-    
+    this.ngx.start();
     this._recruiterService.getData().subscribe({
       next: (data) => {
         this.slotData = data;
@@ -265,7 +267,7 @@ export class RightComponent implements OnInit, OnChanges {
           });
           
         });
-        
+        this.ngx.stop();
       },
     });
     

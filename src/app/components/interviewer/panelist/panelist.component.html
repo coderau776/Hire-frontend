@@ -7,6 +7,7 @@
 
 </head>
 <body>
+  
   <div class="navigator">
     <h1 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">H</h1>
     <!-- <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-person" viewBox="0 0 16 16">
@@ -44,36 +45,17 @@
     <br />
     <div class="skill">
     <div class="addskill">
-      <p>Angular</p>
-      <!-- <img
-        src="../../assets/383147_edit_icon.png"
-        alt=""
-        width="30"
-        height="25"
-      /> -->
-
+      <p>{{person.primary_Skill}}</p>
       <!-- <fa-icon [icon]="faEdit"></fa-icon> -->
     </div>
     <br />
     <div class="addskill">
-      <p>Angular</p>
-      <!-- <img
-        src="../../assets/383147_edit_icon.png"
-        alt=""
-        width="30"
-        height="25"
-      /> -->
+      <p>{{person.secondary_Skill}}</p>
       <!-- <fa-icon [icon]="faEdit"></fa-icon> -->
     </div>
     <br />
     <div class="addskill">
-      <p>Angular</p>
-      <!-- <img
-        src="../../assets/383147_edit_icon.png"
-        alt=""
-        width="30"
-        height="25"
-      /> -->
+      <p>{{person.secondary_Skill}}</p>
       <!-- <fa-icon [icon]="faEdit"></fa-icon> -->
     </div>
   </div>
@@ -83,19 +65,19 @@
   
   <div  class="main-content">
     <div class="part1">
-    <p class="greet" *ngIf="user">Good Morning {{user.firstName}} ....</p>
+    <p class="greet" *ngIf="user">Good {{time}} {{user.firstName}} ....</p>
     
     <div class="incentive">
-      <div class="incentive_card">
-        <p class="p1">Interviews taken Monthly</p>
+      <div title="Interviews taken Monthly" class="incentive_card">
+        <p class="p1">Monthly</p>
         <p class="p2">{{month}}</p>
       </div>
-      <div class="incentive_card">
-        <p class="p1">Interviews taken Quaterly</p>
+      <div title="Interviews taken Quaterly" class="incentive_card">
+        <p class="p1">Quaterly</p>
         <p class="p2">{{quarter}}</p>
       </div>
-      <div class="incentive_card">
-        <p class="p1">Interviews taken Annually</p>
+      <div title="Interviews taken Annually" class="incentive_card">
+        <p class="p1">Annually</p>
         <p class="p2">{{year}}</p>
       </div>
       
