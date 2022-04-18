@@ -19,7 +19,7 @@ describe('PanelistComponent', () => {
     .compileComponents();
   });
 
-  beforeEach(() => {
+  beforeEach(async () => {
     fixture = TestBed.createComponent(PanelistComponent);
     component = fixture.componentInstance;
     http =  TestBed.inject(HttpClient);
@@ -27,7 +27,12 @@ describe('PanelistComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
+
+  // it('should have getData function', () => {
+  //   // const service: myService = TestBed.get(myService);
+  //   expect(component.getId).toBeTruthy();
+  //  });
 });

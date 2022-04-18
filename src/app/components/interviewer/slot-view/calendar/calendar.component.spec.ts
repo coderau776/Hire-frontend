@@ -22,7 +22,7 @@ describe('CalendarComponent', () => {
     .compileComponents();
   });
 
-  beforeEach(() => {
+  beforeEach(async () => {
     fixture = TestBed.createComponent(CalendarComponent);
     component = fixture.componentInstance;
     http =  TestBed.inject(HttpClient);
@@ -30,7 +30,7 @@ describe('CalendarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', async () => {
     expect(component).toBeTruthy();
   });
 
@@ -46,7 +46,7 @@ describe('CalendarComponent', () => {
   // });
 
   // it('should check whether the dates are blocked after 14 days', () => {
-  //   expect(todayDate.toLocaleDateString()).toBe('3/31/2022');
+  //   expect(todayDate.toLocaleDateString()).toBe('4/16/2022');
   //   let blockedDate = disabledDated.calculateDisable();
   //   expect(blockedDate).not.toContain(todayDate.toLocaleDateString());
   // });
