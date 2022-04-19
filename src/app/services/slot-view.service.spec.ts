@@ -4,18 +4,21 @@ import {HttpClient, HttpClientModule} from '@angular/common/http'
 
 import { SlotViewService } from './slot-view.service';
 
+
 describe('SlotViewService', () => {
   let service: SlotViewService;
-  let httpMock:HttpTestingController;
-  let http:HttpClient;
+
+  let http: HttpClient;
+  let httpController: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule], 
-      providers: [SlotViewService]
+      imports: [ HttpClientTestingModule ]
     });
     service = TestBed.inject(SlotViewService);
-    httpMock = TestBed.get(HttpTestingController);
+    http =  TestBed.inject(HttpClient);
+    httpController =  TestBed.inject(HttpTestingController);
+
   });
 
   it('should be created', () => {

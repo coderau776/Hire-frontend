@@ -10,7 +10,8 @@ export class SlotViewService {
   private url_slot: string =
     'http://ec2-13-232-164-153.ap-south-1.compute.amazonaws.com:8080/slots/';
   readyToFetch: EventEmitter<boolean> = new EventEmitter<boolean>();
-  slots: Slot[]=[];
+
+  slots: Slot[] = [];
   headers = { 'content-type': 'application/json' };
   constructor(private http: HttpClient) {}
 

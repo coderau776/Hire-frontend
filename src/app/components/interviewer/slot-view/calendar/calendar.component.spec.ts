@@ -4,6 +4,10 @@ import { CalendarComponent } from './calendar.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing'
 import { HttpClient } from '@angular/common/http';
 
+const todayDate:Date = new Date; 
+
+let disabledDated: CalendarComponent;
+
 describe('CalendarComponent', () => {
   let component: CalendarComponent;
   let fixture: ComponentFixture<CalendarComponent>;
@@ -18,7 +22,7 @@ describe('CalendarComponent', () => {
     .compileComponents();
   });
 
-  beforeEach(() => {
+  beforeEach(async () => {
     fixture = TestBed.createComponent(CalendarComponent);
     component = fixture.componentInstance;
     http =  TestBed.inject(HttpClient);
@@ -26,7 +30,25 @@ describe('CalendarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', async () => {
     expect(component).toBeTruthy();
   });
+
+  // it('should show current date', () => {
+
+  // })
+
+  // it('should check ondate selected event', () => {
+  //   const date = new Date(31/3/2022);
+  //   component.onDateSelected(date);
+  //   fixture.detectChanges();
+  //   expect(component.details.get('contractStartDate').value.toString()).toEqual(date);
+  // });
+
+  // it('should check whether the dates are blocked after 14 days', () => {
+  //   expect(todayDate.toLocaleDateString()).toBe('4/16/2022');
+  //   let blockedDate = disabledDated.calculateDisable();
+  //   expect(blockedDate).not.toContain(todayDate.toLocaleDateString());
+  // });
+
 });

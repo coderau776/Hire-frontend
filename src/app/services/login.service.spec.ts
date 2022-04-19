@@ -21,4 +21,9 @@ describe('LoginService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should have getData function', () => {
+    // const service: myService = TestBed.get(myService);
+    expect(service.setUser).toBeTruthy();
+   });
 });
