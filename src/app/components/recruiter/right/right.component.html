@@ -1,8 +1,11 @@
-<div class="mat-elevation-z8 table-container">
+
+
+<div class="mat-elevation-z8 table-container" style="margin-top: 5px;">
+  <button class="btn btn-sm btn-primary" style="margin-left: 90%;margin-bottom: 0;margin-top: 0px;" (click)="exporter.exportTable('csv')">Download slots</button>
   <!-- just to show the loading state while sending the mail -->
   <div [ngClass]="{ 'progress-bar': isLoading, loading: isLoading }"></div>
 
-  <table mat-table [dataSource]="dataSource" matSort>
+  <mat-table mat-table style="text-align: center;" [dataSource]="dataSource" matTableExporter #exporter="matTableExporter" matSort>
     <!-- Slot Id column -->
     <ng-container matColumnDef="slotId">
       <th mat-header-cell mat-sort-header *matHeaderCellDef>Slot Id</th>
@@ -67,7 +70,8 @@
           }"
           [disabled]="element.status === 'not available'"
         >
-          Schedule
+       
+          {{element.status === 'available'?"Schedule":"Scheduled"}}
         </button>
       </td>
     </ng-container>
@@ -75,9 +79,9 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
+  </mat-table>
 
-  <mat-paginator [length]="100" [pageSize]="12" aria-label="Select page">
+  <mat-paginator [length]="100" [pageSize]="10" aria-label="Select page">
   </mat-paginator>
 </div>
 <div class="loading-icon"></div>

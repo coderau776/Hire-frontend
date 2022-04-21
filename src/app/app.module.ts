@@ -36,6 +36,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { RecruiterService } from './services/recruiter.service';
 import { PipePipe } from './pipes/pipe.pipe';
 import { NgxUiLoaderModule } from "ngx-ui-loader";
+import { MatTableExporterModule } from 'mat-table-exporter';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { NgxUiLoaderModule } from "ngx-ui-loader";
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
-    NgxUiLoaderModule
+    NgxUiLoaderModule,
+    MatTableExporterModule
   ],
   providers: [
     {
